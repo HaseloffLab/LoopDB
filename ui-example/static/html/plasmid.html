@@ -1,0 +1,11 @@
+<plasmid plasmidwidth = 500 plasmidheight = 500 style = "display:block;margin:auto;" height = "100%" sequencelength = {{length}}>
+	<plasmidtrack id = "t1" radius = {{radius}} width = 1>
+		<trackscale interval="1000" direction="in" showlabels="1" style="stroke:#f00;stroke-width:2p" labelvadjust="10" labelstyle="font-size:8px;fill:#999"></trackscale>
+		<tracklabel text="{{name}}"></tracklabel>
+	</plasmidtrack>
+	<plasmidtrack ng-repeat="i in range" id = "{{i}}" radius = "{{radius + i*width}}", width = {{width}}>
+		<trackmarker ng-repeat="part in markers[i]", start = "{{part.start}}", end = "{{part.end}}", style="fill:#9cf;stroke:#036">
+		</trackmarker>
+	</plasmidtrack>
+</plasmid>
+<i class = "fa fa-download download " onClick = "downloadPart()"></i>
