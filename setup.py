@@ -4,7 +4,7 @@ from os import path
 
 setup(
 	name = 'LoopDB',
-	version = '1.0',
+	version = '0.1',
 	description='A module for creating and storing DNA parts for Loop Assembly',
 	url='https://github.com/HaseloffLab/LoopDB',
 	author = 'Mihails Delmans',
