@@ -11,7 +11,7 @@
 		
 		{"name": "ab", "re": "SapI", "site5": "ATG" , "site3": "GCA" },
 		{"name": "bg", "re": "SapI", "site5": "GCA" , "site3": "TAC" },
-		{"name": "ge", "re": "SapI", "site5": "TAG" , "site3": "CAG" },
+		{"name": "ge", "re": "SapI", "site5": "TAC" , "site3": "CAG" },
 		{"name": "ew", "re": "SapI", "site5": "CAG" , "site3": "GGT" },
 
 		{"name": "AF", "re": "BsaI", "site5": "GGAG" , "site3": "CGCT"},
@@ -32,9 +32,9 @@
 
 	],
 	"BaseSeq":[
-		{"name": "L0", "gbFile": "Ly.gb" },
-		{"name": "Ly", "receiver": "AF", "gbFile": "Ly.gb"},
-		{"name": "Lx", "receiver": "aw", "gbFile": "Lx.gb" }
+		{"name": "L0", "gbFile": "gb/Ly.gb" },
+		{"name": "Ly", "receiver": "AF", "gbFile": "gb/Ly.gb"},
+		{"name": "Lx", "receiver": "aw", "gbFile": "gb/Lx.gb" }
 	],
 	"Backbone":[
 		{"name": "Lx1", "baseSeq" : "Lx", "adapter" : "AB" },
