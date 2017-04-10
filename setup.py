@@ -3,7 +3,7 @@ from codecs import open
 from os import path
 
 setup(
-	name = 'LoopDB',
+	name = 'loopDB',
 	version = '0.2',
 	description='A module for creating and storing DNA parts for Loop Assembly',
 	url='https://github.com/HaseloffLab/LoopDB',
