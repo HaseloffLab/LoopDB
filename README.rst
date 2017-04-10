@@ -7,7 +7,14 @@ alternative schema definitions ( see *manual-example* ).
 
 For a quick introduction please read the **Getting started** section. Have a look at the **Tables**
 section for a brief description of the underlying data structure. Check out example folders with
-some code to get you started. Refer to **Advanced** for getting hold of **SQLAlchemy** functions.
+some code to get you started. You can clone just `examples` branch, without the sorce code by
+
+
+::
+
+    git clone -b examples git@github.com:HaseloffLab/LoopDB.git
+
+Refer to **Advanced** for getting hold of **SQLAlchemy** functions.
 
 **Any other questions?** Please file an issue, or contact me at m.delmans@gmail.com
 
