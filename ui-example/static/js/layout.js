@@ -26,10 +26,17 @@ $(function () {
 						angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
 						w2ui["layout"].content('main', "<div id='seqView'></div>");
 
-						socket.emit('getSequence', event.target, function(seq){
-							console.log(seq);
+						socket.emit('getSequence', event.target, function(seq, features){
 							sequence = new Sequence(seq);
 							sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "300px"} );
+
+							console.log("Features")
+							console.log(features)
+							sort_features(features);
+							console.log("Features sorted")
+							console.log(features)
+							highlight(features, seq);
+							
 						});
 				}	
 				}) 

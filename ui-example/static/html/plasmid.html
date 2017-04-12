@@ -4,7 +4,7 @@
 		<tracklabel text="{{name}}"></tracklabel>
 	</plasmidtrack>
 	<plasmidtrack ng-repeat="i in range" id = "{{i}}" radius = "{{radius + i*width}}", width = {{width}}>
-		<trackmarker ng-repeat="part in markers[i]", start = "{{part.start}}", end = "{{part.end}}", style="fill:#9cf;stroke:#036">
+		<trackmarker ng-repeat="part in markers[i]", start = "{{part.start}}", end = "{{part.end}}", style="fill:#9cf;stroke:#036", markerclick="click($event, $marker)">
 		</trackmarker>
 	</plasmidtrack>
 </plasmid>

@@ -29,6 +29,19 @@ def partToJson(part):
 	j["site3"]		= part.backbone.adapter.site3
 	return j
 
+def featuresToJson(features):
+	j = {}
+	j["label"] 		= features.label
+	j["start"]		= features.start
+	j["end"]		= features.end
+	j["partID"]		= features.partID
+	j["id"]			= features.id
+	j["forward"]	= features.forward
+	j["color"]		= features.color
+		
+		
+	return j
+
 def backboneToJSON(backbone):
 	j = {}
 	j["name"]		= backbone.name
@@ -84,12 +97,18 @@ def getParts(site3):
 def getSequence(dbid):
 	session = loopDB.Session()
 	part = session.query(Part).filter(Part.dbid == dbid).first()
+	features = session.query(Feature).filter(Feature.partID == part.id).all()
+	print features
+	jFeatures = list ( map(featuresToJson, features))
+	# Maybe here create the annotation array with the coordinates and color?
+	# ERROR - something about features not being JSON serializable...
+	
 	if part:
 		seq = part.partSeq
 	else:
 		seq = ''
 	session.close()
-	return seq
+	return seq, jFeatures
 
 @socketio.on('getBackbones')
 def getBackbones():

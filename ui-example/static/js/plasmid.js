@@ -7,7 +7,11 @@ app.controller('preview', function($scope){
 	$scope.radius = 100;
 	$scope.length = 0;
 	$scope.url = '/static/html/plasmid.html'
-
+	$scope.click = function(event, marker){
+		
+		// call sequence.coverage again with the selected feature if in the plasmid viewing mode.
+		console.log(marker.start, marker.end);
+	}
 	$scope.setPart = function(part){
 		console.log("RenderPart: ", part);
 		$scope.layers = [];
