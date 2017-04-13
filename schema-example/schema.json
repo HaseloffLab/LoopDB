@@ -32,19 +32,21 @@
 
 	],
 	"BaseSeq":[
-		{"name": "L0", "gbFile": "gb/Ly.gb" },
-		{"name": "Ly", "receiver": "AF", "gbFile": "gb/Ly.gb"},
-		{"name": "Lx", "receiver": "aw", "gbFile": "gb/Lx.gb" }
+		{"name": "L0", "gbFile": "gb/Lk.gb" },
+		{"name": "Lk", "receiver": "AF", "gbFile": "gb/Lk.gb"},
+		{"name": "Ls", "receiver": "aw", "gbFile": "gb/Ls.gb" }
+		
+		
 	],
 	"Backbone":[
-		{"name": "Lx1", "baseSeq" : "Lx", "adapter" : "AB" },
-		{"name": "Lx2", "baseSeq" : "Lx", "adapter" : "BC" },
-		{"name": "Lx3", "baseSeq" : "Lx", "adapter" : "CE" },
-		{"name": "Lx4", "baseSeq" : "Lx", "adapter" : "EF" },
-		{"name": "Ly1", "baseSeq" : "Ly", "adapter" : "ab" },
-		{"name": "Ly2", "baseSeq" : "Ly", "adapter" : "bg" },
-		{"name": "Ly3", "baseSeq" : "Ly", "adapter" : "ge" },
-		{"name": "Ly4", "baseSeq" : "Ly", "adapter" : "ew" },
+		{"name": "Lk-1", "baseSeq" : "Lk", "adapter" : "ab" },
+		{"name": "Lk-2", "baseSeq" : "Lk", "adapter" : "bg" },
+		{"name": "Lk-3", "baseSeq" : "Lk", "adapter" : "ge" },
+		{"name": "Lk-4", "baseSeq" : "Lk", "adapter" : "ew" },
+		{"name": "Ls-1", "baseSeq" : "Ls", "adapter" : "AB" },
+		{"name": "Ls-2", "baseSeq" : "Ls", "adapter" : "BC" },
+		{"name": "Ls-3", "baseSeq" : "Ls", "adapter" : "CE" },
+		{"name": "Ls-4", "baseSeq" : "Ls", "adapter" : "EF" },
 
 		{"name": "L0-Prom5", 	"baseSeq" : "L0", "adapter" : "prom5" },
 		{"name": "L0-Prom", 	"baseSeq" : "L0", "adapter" : "prom" },

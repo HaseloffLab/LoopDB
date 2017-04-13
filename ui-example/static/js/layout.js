@@ -1,4 +1,8 @@
 var app = angular.module('app', ["angularplasmid"]);
+// Globalizing seq
+seq = "";
+// Globalizing features
+features = "";
 socket = io();
 downloadFrame = document.createElement('iframe');
 
@@ -24,18 +28,21 @@ $(function () {
 						part = this.parts.find( ({dbid}) => ( dbid == event.target ) );
 						angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
 						angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
-						w2ui["layout"].content('main', "<div id='seqView'></div>");
+						// Added reset button to sequence-viewer
+						w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
 
 						socket.emit('getSequence', event.target, function(seq, features){
+							// Assigning global seq
+							seq = seq;
+							// Assigning global features
+							features = features;
 							sequence = new Sequence(seq);
 							sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "300px"} );
 
-							console.log("Features")
-							console.log(features)
+							// Sorting features by position
 							sort_features(features);
-							console.log("Features sorted")
-							console.log(features)
-							highlight(features, seq);
+							// Highlighting features
+							highlight(features);
 							
 						});
 				}	

@@ -8,3 +8,20 @@
 	left: 20px;
 	cursor: pointer;
 }
+
+.mlabel{ 
+	fill:#c00;
+	font-size:8px;
+	font-weight:bold;
+}
+
+.t1{
+	fill:#ddd;
+	stroke:#999;
+}
+
+#p1{
+	/*font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;*/
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	border:1px solid #ccc;
+}

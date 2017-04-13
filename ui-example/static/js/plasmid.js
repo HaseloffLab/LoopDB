@@ -3,14 +3,21 @@ app.controller('preview', function($scope){
 	$scope.layers = [];
 	$scope.markers = [];
 	$scope.range = [];
-	$scope.width = 20;
+	$scope.width = 25;
 	$scope.radius = 100;
 	$scope.length = 0;
 	$scope.url = '/static/html/plasmid.html'
 	$scope.click = function(event, marker){
 		
-		// call sequence.coverage again with the selected feature if in the plasmid viewing mode.
-		console.log(marker.start, marker.end);
+		// Highlighting selected marker
+
+		// Dirty hack to remove current legend in sequence-viewer
+		$('.coverageLegend').empty();
+		
+		// Getting a number according to dbid last digit - for colouring purposes
+		var number = marker.markergroup.split(".")[2]
+		var feature = [{ start: marker.start , end: marker.end, label: marker.markergroup, id: number }];
+		highlight_selected(feature);
 	}
 	$scope.setPart = function(part){
 		console.log("RenderPart: ", part);
@@ -52,7 +59,9 @@ app.controller('preview', function($scope){
 			start = 0;
 			for(j=0; j < layer.length; j++){
 				part = layer[j];
-				level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.dbid } );
+				//level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.dbid } );
+				// Removed positioning "hack"
+				level.push( { start: start , end: start + part.length, text: part.dbid } );
 				start += part.length;
 			}
 			$scope.markers.push(level);
