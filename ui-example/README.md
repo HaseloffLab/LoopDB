@@ -1,0 +1,3 @@
+# Issues
+
+Entries without any features have problems with highlighting in sequence viewer. This is the case for assemblies which are saved in database with no actual features annotated", but with parent and inherited relations (I think)...

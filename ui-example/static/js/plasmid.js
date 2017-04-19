@@ -16,7 +16,17 @@ app.controller('preview', function($scope){
 		
 		// Getting a number according to dbid last digit - for colouring purposes
 		var number = marker.markergroup.split(".")[2]
-		var feature = [{ start: marker.start , end: marker.end, label: marker.markergroup, id: number }];
+		
+		var start = marker.start
+		var end = marker.end
+		
+		//var length = (marker.end - marker.start)
+		//var start = (marker.start + length/2)
+		///var end = start + length
+		
+		//console.log("Start and End")
+		//console.log(start, end, length)
+		var feature = [{ start: start , end: end, label: marker.markergroup, id: number }];
 		highlight_selected(feature);
 	}
 	$scope.setPart = function(part){
