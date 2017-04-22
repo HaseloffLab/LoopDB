@@ -109,7 +109,7 @@ assemblyForm = {
 		this.page = 0;
 		this.actions = {
 			clear : {caption: "Clear", onClick : function(){
-				form.init();
+				assemblyForm.init();
 			}},
 
 			next : {caption : "Proceed", onClick : function(){
@@ -117,7 +117,7 @@ assemblyForm = {
 				socket.emit('getParts', this.record.selector.site3, function(parts){
 					console.log(this.part);
 
-					if (form.n == 0 && parts.length == 0){
+					if (assemblyForm.n == 0 && parts.length == 0){
 						this.onValidate = function(event){
 							event.errors.push({ field: this.get("selector"), error : "Can't find parts to proceed assembly." });
 						}
@@ -134,43 +134,43 @@ assemblyForm = {
 					}
 
 					if (this.validate(true).length == 0){
-						form.tabs[ form.tabs.length-1 ].caption = this.record.selector.text;
-						if (form.n == 0){
-							form.part.backbone = this.record.selector;
+						assemblyForm.tabs[ assemblyForm.tabs.length-1 ].caption = this.record.selector.text;
+						if (assemblyForm.n == 0){
+							assemblyForm.part.backbone = this.record.selector;
 						}
 						else{
-							form.part.children.push( this.record.selector );
-							form.part.length += this.record.selector.length;
+							assemblyForm.part.children.push( this.record.selector );
+							assemblyForm.part.length += this.record.selector.length;
 						}
 						
-						form.part.fullLength += this.record.selector.length;
+						assemblyForm.part.fullLength += this.record.selector.length;
 
-						angular.element( $("#layout_layout_panel_preview") ).scope().setPart( form.part );
+						angular.element( $("#layout_layout_panel_preview") ).scope().setPart( assemblyForm.part );
 						angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
 
 
-						form.n++;
-						for (i=0; i<form.n; i++){
-							form.tabs[i].disabled = true;
+						assemblyForm.n++;
+						for (i=0; i<assemblyForm.n; i++){
+							assemblyForm.tabs[i].disabled = true;
 						}
-						form.page = form.n;
+						assemblyForm.page = assemblyForm.n;
 
 						if (parts.length != 0){
-							form.fields[0] = {
+							assemblyForm.fields[0] = {
 								field: "selector", type: "list", required: true,
 								options:{
 									items: parts
 								},
 								html:{
-									page: form.n,
-									caption : "Select part " + form.n
+									page: assemblyForm.n,
+									caption : "Select part " + assemblyForm.n
 								}
 							}
-							form.tabs.push( {id: "tab" + form.n, caption: "Select part "+form.n} )
+							assemblyForm.tabs.push( {id: "tab" + assemblyForm.n, caption: "Select part "+assemblyForm.n} )
 						}
 						else{
-							form.actions.next.caption = "Finalise";
-							form.actions.next.onClick = function(){
+							assemblyForm.actions.next.caption = "Finalise";
+							assemblyForm.actions.next.onClick = function(){
 
 								this.onValidate = function(event){
 									if (w2ui['SideBar'].parts.find( ({name}) => name == this.record["Part name"] )){
@@ -179,9 +179,9 @@ assemblyForm = {
 								};
 
 								if (this.validate(true).length == 0){
-									form.part.name = this.record["Part name"];
-									console.log( form.part )
-									socket.emit("submitAssembly", form.part, function(response){
+									assemblyForm.part.name = this.record["Part name"];
+									console.log( assemblyForm.part )
+									socket.emit("submitAssembly", assemblyForm.part, function(response){
 										if (response[0] == "OK"){
 											console.log("RESPONE OK");
 											w2ui['layout'].content('main', "<i class='fa fa-check-circle-o fa-5x'></i>");
@@ -190,20 +190,20 @@ assemblyForm = {
 									});
 								}
 							}
-							form.fields = [
+							assemblyForm.fields = [
 								{ field: "Part name", type: "text", required: true,
 									html:{
-										page: form.n
+										page: assemblyForm.n
 									}
 								}
 							];
-							form.tabs.push( { id: "tabF", caption: "Set part name" } );
+							assemblyForm.tabs.push( { id: "tabF", caption: "Set part name" } );
 						}
 						delete w2ui['assemblyForm'];
 						delete w2ui['assemblyForm_tabs'];
 						delete w2ui['assemblyForm_toolbar'];
 
-						w2ui['layout'].content('main', $().w2form(form) );
+						w2ui['layout'].content('main', $().w2form(assemblyForm) );
 
 					}
 					else{
