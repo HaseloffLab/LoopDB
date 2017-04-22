@@ -3,7 +3,9 @@ renderPart = function(partDBID){
 	angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
 	angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
 	// Added reset button to sequence-viewer
-	w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
+	// w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
+
+	w2ui["layout"].content('main', "<div id='seqView'></div>");
 
 	socket.emit('getRecord', partDBID, function(record){
 		// Assigning global seq
