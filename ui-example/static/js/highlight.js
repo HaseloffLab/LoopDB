@@ -21,8 +21,8 @@ var typeColorsSelected = {	'0'		: 'rgb(230, 230, 120)',
 
 function sort_features(features){
 	features.sort(function(a, b) {
-    return a.start - b.start;
-});
+    	return a.start - b.start;
+	});
 }
 
 sequenceCoverage = [];
@@ -41,28 +41,24 @@ function highlight(features){
 		var start = features[i].start;
 		var end = features[i].end;
 		var label = features[i].label;
-		
-		// Checking if index is out of bounds
-		if (features[i].id > 9){
-			var index = features[i].id - 10;
-		}else{
-		var index = features[i].id;
-		}
-		
+
 		if (start < previous){
 			console.log("Skipping label "+label+" due to being inside another feature");
 			continue;
 		}
+
+		var index = sequenceCoverage.length % 10;
+
 		previous = end;
 
 		color = typeColorsSelected[index];
 
 		sequenceCoverage.push({
-		start:		start,
-		end:		end,
-		bgcolor:	color,
-		color:		"black",
-		underscore:	false   
+			start:		start,
+			end:		end,
+			bgcolor:	color,
+			color:		"black",
+			underscore:	false   
 		});
 		
 		legend.push(
@@ -71,10 +67,10 @@ function highlight(features){
 
 		subSeq = subSeq + seq.substring(start, end);
 		
-		sequence.coverage(sequenceCoverage)
+		$('.coverageLegend').empty();
+
+		sequence.coverage(sequenceCoverage);
 		sequence.addLegend(legend);
-
-
 	}
 }
 // Do not know to make distinction from first highlighting to the selected highlighting for reset button to work
@@ -92,27 +88,23 @@ function highlight_selected(features){
 		var end = features[i].end;
 		var label = features[i].label;
 		
-		// Checking if index is out of bounds
-		if (features[i].id > 9){
-			var index = features[i].id - 10;
-		}else{
-		var index = features[i].id;
-		}
-		
 		if (start < previous){
 			console.log("Skipping label "+label+" due to being inside another feature");
 			continue;
 		}
+
+		var index = sequenceCoverage.length % 10;
+
 		previous = end;
 
 		color = typeColorsSelected[index];
 
 		sequenceCoverage.push({
-		start:		start,
-		end:		end,
-		bgcolor:	color,
-		color:		"black",
-		underscore:	false   
+			start:		start,
+			end:		end,
+			bgcolor:	color,
+			color:		"black",
+			underscore:	false
 		});
 		
 		legend.push(
@@ -120,7 +112,7 @@ function highlight_selected(features){
 		);
 
 		subSeq = subSeq + seq.substring(start, end);
-		
+	
 		sequence.coverage(sequenceCoverage)
 		sequence.addLegend(legend);
 
@@ -133,4 +125,5 @@ function reset(){
 	$('.coverageLegend').empty();
 	sequence.coverage(sequenceCoverage);
 	sequence.addLegend(legend);
+	console.log(sequenceCoverage);
 };	

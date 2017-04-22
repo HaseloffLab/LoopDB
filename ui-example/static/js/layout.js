@@ -21,31 +21,10 @@ $(function () {
 		name: 'layout',
 		panels: [
 			{ type: 'left', size: 150, resizable: true, content: $().w2sidebar({
-				name: "SideBar",
-				nodes: [],
-				parts: [],
-				onClick: function(event){
-						part = this.parts.find( ({dbid}) => ( dbid == event.target ) );
-						angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
-						angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
-						// Added reset button to sequence-viewer
-						w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
-
-						socket.emit('getSequence', event.target, function(seq, features){
-							// Assigning global seq
-							seq = seq;
-							// Assigning global features
-							features = features;
-							sequence = new Sequence(seq);
-							sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "300px"} );
-
-							// Sorting features by position
-							sort_features(features);
-							// Highlighting features
-							highlight(features);
-							
-						});
-				}	
+					name: "SideBar",
+					nodes: [],
+					parts: [],
+					onClick: function(event){ renderPart(event.target) }	
 				}) 
 			},
 			{ type: 'main' , toolbar: {
@@ -86,12 +65,3 @@ $(function () {
 		angular.bootstrap( document, ['app'] );
 	});
 });
-
-function showInfo(event){
-	socket.emit('getSequence', parts[event.target].dbid, function(seq){
-		w2ui['layout'].content('main', seq);
-	});
-	
-	angular.element( $("#layout_layout_panel_preview") ).scope().setPart( parts[event.target] );
-	angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
-}

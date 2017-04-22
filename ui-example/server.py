@@ -30,16 +30,23 @@ def partToJson(part):
 	return j
 
 # New Jsonification for features
-def featuresToJson(features):
+def featureToJson(feature):
 	j = {}
-	j["label"] 		= features.label
-	j["start"]		= features.start
-	j["end"]		= features.end
-	j["partID"]		= features.partID
-	j["id"]			= features.id
-	j["forward"]	= features.forward
-	j["color"]		= features.color
-		
+	if "label" in feature.qualifiers:
+		j["label"] 	= feature.qualifiers["label"]
+	else:
+		j["label"]  = ""
+
+	j["start"]		= int(feature.location.start)
+	j["end"]		= int(feature.location.end)
+	# j["partID"]		= feature.partID
+	# j["id"]			= feature.id
+	j["forward"]	= feature.location.strand
+	
+	if "ApEinfo_fwdcolor" in feature.qualifiers:
+		j["color"]	= feature.qualifiers["ApEinfo_fwdcolor"]
+	else:
+		j["color"]  = ""
 		
 	return j
 
@@ -65,8 +72,6 @@ def export():
 
 	if dbid:
 		part = loopDB.session.query(Part).filter(Part.dbid == dbid ).first()
-
-	print part.fullRecord
 
 	response = make_response(part.fullRecord.format("gb"))
 	response.headers["Content-Type"] = "application/octet-stream"
@@ -94,21 +99,19 @@ def getParts(site3):
 	session.close()
 	return jParts
 
-@socketio.on('getSequence')
-def getSequence(dbid):
+@socketio.on('getRecord')
+def getRecord(dbid):
 	session = loopDB.Session()
 	part = session.query(Part).filter(Part.dbid == dbid).first()
-	features = session.query(Feature).filter(Feature.partID == part.id).all()
-	# Jsonifying features
-	jFeatures = list ( map(featuresToJson, features))
-		
+	
 	if part:
-		seq = part.partSeq
+		record = {'seq' : str(part.record.seq), 'features' : list( map(featureToJson, part.record.features) )}
 	else:
-		seq = ''
+		record = {}
+
 	session.close()
-	# return jFeatures
-	return seq, jFeatures
+
+	return record
 
 @socketio.on('getBackbones')
 def getBackbones():
@@ -121,8 +124,6 @@ def getBackbones():
 @socketio.on('submitAssembly')
 def submitPart(part):
 
-	print "Part: ", part
-
 	childrenIDs = [ ch["dbid"] for ch in part["children"] ]
 	children = loopDB.session.query(Part).filter( Part.dbid.in_( childrenIDs )).all()
 
@@ -130,8 +131,6 @@ def submitPart(part):
 
 	backbone = loopDB.session.query(Backbone).filter(Backbone.dbid == part["backbone"]["dbid"]).first()
 	if len(children) == len(part["children"]) and backbone:
-
-		print [ch.name for ch in children]
 
 		loopDB.addPart(name = part["name"], children = children, backbone = backbone)
 		loopDB.commit()

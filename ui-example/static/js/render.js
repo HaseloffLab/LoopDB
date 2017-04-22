@@ -1,3 +1,27 @@
+renderPart = function(partDBID){
+	part = w2ui['SideBar'].parts.find( ({dbid}) => ( dbid == partDBID ) );
+	angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
+	angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
+	// Added reset button to sequence-viewer
+	w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
+
+	socket.emit('getRecord', partDBID, function(record){
+		// Assigning global seq
+		seq = record["seq"];
+		// Assigning global features
+		features = record["features"];
+		sequence = new Sequence(seq);
+		sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "300px"} );
+
+		// Sorting features by position
+		sort_features(features);
+		// Highlighting features
+		highlight(features);
+		console.log(sequence);
+		
+	});
+}
+
 renderPartList = function(){
 	socket.emit('getParts', '', function(parts){
 		w2ui['SideBar'].parts = parts;
@@ -70,7 +94,7 @@ renderAddNewForm = function(){
 	});
 }
 
-form = {
+assemblyForm = {
 	init: function(){
 		this.name  =  "assemblyForm";
 		this.header = "Assemble new part";
@@ -89,14 +113,22 @@ form = {
 			next : {caption : "Proceed", onClick : function(){
 
 				socket.emit('getParts', this.record.selector.site3, function(parts){
+					console.log(this.part);
 
-					if (parts.length == 0 && this.record.selector.site3 != this.part.backbone.site5){
+					if (form.n == 0 && parts.length == 0){
 						this.onValidate = function(event){
-							event.errors.push({ field: this.get("selector"), error: "Can't find parts to proceed assembly." });
+							event.errors.push({ field: this.get("selector"), error : "Can't find parts to proceed assembly." });
 						}
 					}
 					else{
-						this.onValidate = function(event){};
+						if (parts.length == 0 && this.record.selector.site3 != this.part.backbone.site5){
+							this.onValidate = function(event){
+								event.errors.push({ field: this.get("selector"), error: "Can't find parts to proceed assembly." });
+							}
+						}
+						else{
+							this.onValidate = function(event){};
+						}
 					}
 
 					if (this.validate(true).length == 0){
@@ -171,12 +203,6 @@ form = {
 
 						w2ui['layout'].content('main', $().w2form(form) );
 
-
-
-
-
-
-
 					}
 					else{
 						console.log("INVALID");
@@ -209,10 +235,5 @@ form = {
 }
 
 renderAssembleForm = function(){
-	// delete w2ui['assemblyForm'];
-	// delete w2ui['assemblyForm_tabs'];
-	// delete w2ui['assemblyForm_toolbar'];
-	// console.log("Form: ", form);
-	form.init();
-
+	assemblyForm.init();
 }

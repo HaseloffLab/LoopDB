@@ -8,29 +8,30 @@ app.controller('preview', function($scope){
 	$scope.length = 0;
 	$scope.url = '/static/html/plasmid.html'
 	$scope.click = function(event, marker){
-		
-		// Highlighting selected marker
+		part = w2ui['SideBar'].parts.find( ({text}) => ( text == marker.labels[0].text ) );
+		w2ui['SideBar'].click(part.dbid);
+		// renderPart(part.dbid);
+		// // Highlighting selected marker
 
-		// Dirty hack to remove current legend in sequence-viewer
-		$('.coverageLegend').empty();
+		// // Dirty hack to remove current legend in sequence-viewer
+		// $('.coverageLegend').empty();
 		
-		// Getting a number according to dbid last digit - for colouring purposes
-		var number = marker.markergroup.split(".")[2]
+		// // Getting a number according to dbid last digit - for colouring purposes
+		// var number = marker.labels[0].text.split(".")[2]
+
+		// var start = marker.start
+		// var end = marker.end
 		
-		var start = marker.start
-		var end = marker.end
+		// //var length = (marker.end - marker.start)
+		// //var start = (marker.start + length/2)
+		// ///var end = start + length
 		
-		//var length = (marker.end - marker.start)
-		//var start = (marker.start + length/2)
-		///var end = start + length
-		
-		//console.log("Start and End")
-		//console.log(start, end, length)
-		var feature = [{ start: start , end: end, label: marker.markergroup, id: number }];
-		highlight_selected(feature);
+		// //console.log("Start and End")
+		// //console.log(start, end, length)
+		// var feature = [{ start: start , end: end, label: marker.labels[0].text, id: number }];
+		// highlight_selected(feature);
 	}
 	$scope.setPart = function(part){
-		console.log("RenderPart: ", part);
 		$scope.layers = [];
 		$scope.range = [0];
 		$scope.markers = [];
@@ -69,9 +70,7 @@ app.controller('preview', function($scope){
 			start = 0;
 			for(j=0; j < layer.length; j++){
 				part = layer[j];
-				//level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.dbid } );
-				// Removed positioning "hack"
-				level.push( { start: start , end: start + part.length, text: part.dbid } );
+				level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.text } );
 				start += part.length;
 			}
 			$scope.markers.push(level);
