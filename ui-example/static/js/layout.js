@@ -27,7 +27,7 @@ $(function () {
 					onClick: function(event){ renderPart(event.target) }	
 				}) 
 			},
-			{ type: 'main' , toolbar: {
+			{ type: 'main', toolbar: {
 				items :[
 					{ id: 'addNewButton', type: 'menu', caption: 'Add', img: 'w2ui-icon-plus', 
 						items:[
@@ -47,14 +47,14 @@ $(function () {
 					}
 				}
 			}},
-			{ type: 'preview', size: '50%', resizable: true}
+			{ type: 'preview', size: 400}
 		]
 	});
 	$("#layout_layout_panel_preview").attr("ng-controller", "preview");
 	$("#layout_layout_panel_preview .w2ui-panel-content").attr("ng-include", "url");
 
-	$("#layout_layout_panel_main").attr("ng-controller", "main");
-	$("#layout_layout_panel_main .w2ui-panel-content").attr("ng-include", "url");
+	// $("#layout_layout_panel_main").attr("ng-controller", "main");
+	// $("#layout_layout_panel_main .w2ui-panel-content").attr("ng-include", "url");
 
 	console.log(w2ui);
 

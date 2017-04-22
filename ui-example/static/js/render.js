@@ -13,7 +13,7 @@ renderPart = function(partDBID){
 		// Assigning global features
 		features = record["features"];
 		sequence = new Sequence(seq);
-		sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "300px"} );
+		sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "200px"} );
 
 		// Sorting features by position
 		sort_features(features);
