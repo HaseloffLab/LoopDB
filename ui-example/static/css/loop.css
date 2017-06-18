@@ -8,6 +8,12 @@
 	left: 20px;
 	cursor: pointer;
 }
+.trash{
+	position: absolute;
+	top: 20px;
+	left: 60px;
+	cursor: pointer;
+}
 
 .mlabel{ 
 	fill:#c00;
@@ -21,7 +27,21 @@
 }
 
 #p1{
-	/*font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;*/
 	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 	border:1px solid #ccc;
 }
+
+
+/*Table*/
+table {
+	margin-top: 100px;
+}
+.list td{
+	width: 150px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+.list tr:first-child{
+	 font-weight: bold;
+};

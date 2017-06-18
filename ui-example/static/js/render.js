@@ -1,11 +1,15 @@
 renderPart = function(partDBID){
 	part = w2ui['SideBar'].parts.find( ({dbid}) => ( dbid == partDBID ) );
+		
+	$("#layout_layout_panel_preview").attr("ng-controller", "preview");
+	$("#layout_layout_panel_preview .w2ui-panel-content").attr("ng-include", "url");
+
 	angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
 	angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
 	// Added reset button to sequence-viewer
 	// w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
 
-	w2ui["layout"].content('main', "<div id='seqView'></div>");
+	w2ui["layout"].content('main', "<div id='seqView'></div><div id='partTable'><table><tbody class='list'></tbody></table></div>");
 
 	socket.emit('getRecord', partDBID, function(record){
 		// Assigning global seq
@@ -14,6 +18,46 @@ renderPart = function(partDBID){
 		features = record["features"];
 		sequence = new Sequence(seq);
 		sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "200px"} );
+
+		nChildren = part["children"].length;
+
+		if (nChildren != 0){
+			valueNames = ["name", "backbone"];
+			values = [{ name: part.name, backbone: part.backbone.name }, { name: "Length", backbone: part.backbone.length.toString() + " bp" },
+						{name: "Concentration", backbone: Math.round(part.backbone.length / 200).toString() + " ng/uL" }];
+			
+			item = "<tr><td class='name'></td><td class='backbone'></td>"
+			
+			for(i=0; i<nChildren; i++){
+				name = "Part " + (i+1).toString();
+				valueNames.push(name);
+				item += "<td class='" + name + "'></td>"
+				values[0][name] = part["children"][i].name;
+				values[1][name] = part["children"][i].fullLength.toString() + " bp";
+				values[2][name] = Math.round(part["children"][i].fullLength / 100).toString() + " ng/uL";
+			}
+
+			item += "</tr>";
+
+			options = { valueNames: valueNames, item: item };
+
+			console.log(options, values);
+
+			partList = new List("partTable", options, values);
+
+			// var options = {
+			//   valueNames: [ 'name', 'city' ],
+			//   item: '<li><h3 class="name"></h3><p class="city"></p></li>'
+			// };
+
+			// var values = [
+			//   { name: 'Jonny', city:'Stockholm' }
+			//   , { name: 'Jonas', city:'Berlin' }
+			// ];
+
+			// var hackerList = new List('partTable', options, values);
+		}
+
 
 		// Sorting features by position
 		sort_features(features);
@@ -28,7 +72,44 @@ renderPartList = function(){
 	socket.emit('getParts', '', function(parts){
 		w2ui['SideBar'].parts = parts;
 		w2ui['SideBar'].remove( w2ui['SideBar'].nodes.map( ({id}) => id ) );
-		w2ui['SideBar'].add( parts.map( ({dbid, name}) => ({id: dbid, text: name}) )  );
+		// w2ui['SideBar'].add( parts.map( ({dbid, name}) => ({id: dbid, text: name}) )  );
+		console.log("Parts: ", parts);
+
+		levels = [];
+		for(i=0; i<parts.length; i++){
+			part = parts[i];
+			level = part.level;
+			
+			if (levels[level] == undefined){
+				levels[level] = {};
+			}
+			
+			console.log(part);
+			bName = part.backbone.name;
+			
+			if (!(bName in levels[level])){
+				levels[level][bName] = [];
+			}
+
+			levels[level][bName].push({id: part.dbid, text: part.name, nodes:[], part:true, icon:"fa fa-circle-o-notch"});
+		}
+
+		for(i=0; i<levels.length; i++){
+			if (levels[i] == undefined){
+				levels[i] = {};
+			}
+
+			levelID = "Level " + i.toString()
+
+			w2ui['SideBar'].add({id: levelID, text: levelID, group: true, part:false }); 
+
+			for(var bName in levels[i]){
+				bID = levelID + "-" + bName;
+				w2ui['SideBar'].insert(levelID, null, {id: bID, text: bName, part:false, img: 'icon-folder'});
+				w2ui['SideBar'].insert(bID, null, levels[i][bName]);
+			}
+		}
+
 	});
 }
 
@@ -47,9 +128,17 @@ renderAddNewForm = function(){
 						attr: 'style=width:200px'
 					}
 				},
-				{ name: 'GenBank file', type: 'file', required: true,
+				{ name: 'GenBank file', type: 'file', required: false,
 					options: {
-						max : 1
+						max : 1,
+						onAdd: function(){
+							w2ui['addForm'].get("Sequence").disabled = true;
+							w2ui['addForm'].refresh("Sequence");
+						},
+						onRemove: function(){
+							w2ui['addForm'].get("Sequence").disabled = false;
+							w2ui['addForm'].refresh("Sequence");
+						}
 					},
 					html:{
 						attr: 'style=width:200px',
@@ -65,11 +154,21 @@ renderAddNewForm = function(){
 					html:{
 						attr: 'style=width:200px'
 					}
+				},
+				{
+					name: 'Sequence', type: 'textarea', required: false,
+					html:{
+						attr: 'style=width:400px;height:200px;resize:none'
+					}
 				}
 			],
 			onValidate: function(event){
+				if ( this.record["GenBank file"] == "" && this.record["Sequence"] == "" ){
+					event.errors.push( {field: this.get("GenBank file"), error: "Either GB file or Sequence is required"  } );
+					event.errors.push( {field: this.get("Sequence"), error: "Either GB file or Sequence is required"  } );
+				}
 				if (w2ui['SideBar'].parts.find( ({name}) => name == this.record["Part name"] )){
-					event.errors.push( {field: this.get("Part name"), error: "Part name already exists"} )
+					event.errors.push( {field: this.get("Part name"), error: "Part name already exists"} );
 				}
 			},
         	actions:{

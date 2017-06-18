@@ -7,9 +7,21 @@ socket = io();
 downloadFrame = document.createElement('iframe');
 
 downloadPart = function(){
-	selected = w2ui["SideBar"].selected;
+	selected = w2ui["SideBar"].part.dbid;
 	if (selected != ''){
 		downloadFrame.src = "/export?dbid=" + selected;
+	}
+}
+
+deletePart = function(){
+	selected = w2ui["SideBar"].part.dbid;
+	if(selected != ''){
+		socket.emit('deletePart', selected, function(response){
+			if (response[0] == "OK"){
+				w2ui['layout'].content('main', "<i class='fa fa-check-circle-o fa-5x'></i>");
+				renderPartList();
+			}
+		});
 	}
 }
 
@@ -24,7 +36,12 @@ $(function () {
 					name: "SideBar",
 					nodes: [],
 					parts: [],
-					onClick: function(event){ renderPart(event.target) }	
+					onClick: function(event){
+						if( event.object.part){
+							renderPart(event.target);
+							this.part = part;
+						}
+					}
 				}) 
 			},
 			{ type: 'main', toolbar: {
