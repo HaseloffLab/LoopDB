@@ -75,8 +75,9 @@ class LoopDB(PartsDB):
 											end = feature.location.end,
 											forward = True if feature.location.strand == 1 else False,
 											type = feature.type,
-											label = feature.qualifiers["label"][0] if feature.qualifiers["label"] else feature.id,
-											color = feature.qualifiers["ApEinfo_fwdcolor"][0] if feature.qualifiers["ApEinfo_fwdcolor"] else "")
+											label = feature.qualifiers["label"][0] if "label" in feature.qualifiers else\
+														(feature.qualifiers["ApEinfo_label"][0] if "ApEinfo_label" in feature.qualifiers else feature.id),
+											color = feature.qualifiers["ApEinfo_fwdcolor"][0] if "ApEinfo_fwdcolor" in feature.qualifiers else "")
 			dbFeatures.append(dbFeature)
 		return dbFeatures
 
@@ -88,8 +89,9 @@ class LoopDB(PartsDB):
 											end = feature.location.end,
 											forward = True if feature.location.strand == 1 else False,
 											type = feature.type,
-											label = feature.qualifiers["label"][0] if feature.qualifiers["label"] else feature.id,
-											color = feature.qualifiers["ApEinfo_fwdcolor"][0] if feature.qualifiers["ApEinfo_fwdcolor"] else "")
+											label = feature.qualifiers["label"][0] if "label" in feature.qualifiers else\
+														(feature.qualifiers["ApEinfo_label"][0] if "ApEinfo_label" in feature.qualifiers else feature.id),
+											color = feature.qualifiers["ApEinfo_fwdcolor"][0] if "ApEinfo_fwdcolor" in feature.qualifiers else "")
 			dbFeatures.append(dbFeature)
 		return dbFeatures
 
@@ -100,6 +102,15 @@ class LoopDB(PartsDB):
 		else:
 			return entry
 
+	def _tryToUpdate(self, Table, **kwargs):
+		row = self.session.query(Table).filter(Table.name == kwargs["name"]).first()
+		if row:
+			for key, value in kwargs.iteritems():
+				setattr(row, key, value)
+			self.session.commit()
+		
+		return row
+	
 	def getRE(self, name):
 		return self._get(RE, name)
 
@@ -116,15 +127,27 @@ class LoopDB(PartsDB):
 		return self._get(Part, name)
 
 	def addRE(self, *args, **kwargs):
-		return super(LoopDB, self).addPart('re', *args, **kwargs)
+		re = self._tryToUpdate(RE, **kwargs)
+		
+		if not re:
+			re = super(LoopDB, self).addPart('re', *args, **kwargs)
+		
+		return re
 
 	def addRES(self, *args, **kwargs):
+		
 		if "re" in kwargs and isinstance(kwargs["re"], str):
 			kwargs["re"] = self._get(RE, kwargs["re"])
 
-		return super(LoopDB, self).addPart('res', *args, **kwargs)
+		res = self._tryToUpdate(RES, **kwargs)
+		
+		if not res:
+			res = super(LoopDB, self).addPart('res', *args, **kwargs)
+		
+		return res
 
 	def addBaseSeq(self, *args, **kwargs):
+		
 		if "gbFile" in kwargs:
 			gbFile = kwargs["gbFile"]
 			kwargs.pop("gbFile", None)
@@ -141,7 +164,12 @@ class LoopDB(PartsDB):
 		else:
 			kwargs["features"] = [ baseFeature ]
 
-		return super(LoopDB, self).addPart('baseseq', *args, **kwargs)
+		baseSeq = self._tryToUpdate(BaseSeq, **kwargs)
+		
+		if not baseSeq:
+			baseSeq = super(LoopDB, self).addPart('baseseq', *args, **kwargs)
+		
+		return baseSeq 
 	
 	def addBackbone(self, *args, **kwargs):
 
@@ -151,7 +179,12 @@ class LoopDB(PartsDB):
 		if "adapter" in kwargs and isinstance(kwargs["adapter"], str):
 			kwargs["adapter"] = self._get(RES, kwargs["adapter"])
 
-		return super(LoopDB, self).addPart('backbone', *args, **kwargs)
+		backbone = self._tryToUpdate(Backbone, **kwargs)
+		
+		if not backbone:
+			backbone = super(LoopDB, self).addPart('backbone', *args, **kwargs)
+
+		return backbone
 
 	def addPart(self, *args, **kwargs):
 		
@@ -163,19 +196,12 @@ class LoopDB(PartsDB):
 			children = kwargs["children"]
 			kwargs.pop("children", None)
 
-		if "gbFile" in kwargs:
-			gbFile = kwargs["gbFile"]
-			kwargs.pop("gbFile", None)
-			record = SeqIO.read(gbFile, format="genbank")
+		if "record" in kwargs:
+			record = kwargs["record"]
+			kwargs.pop("record", None)
 			kwargs["features"] = self.extractFeatures(record)
 			kwargs["seq"] = str(record.seq)
-
-		if "seq" in kwargs:
-			partFeature = self.addFeature( start = 0, end = len( kwargs["seq"] ), label = kwargs["name"], type = "misc_feature", forward = True, color = "#00FFFF")
-			if "features" in kwargs:
-				kwargs["features"].append(partFeature)
-			else:
-				kwargs["features"] = [ partFeature ]
+			kwargs["seq"] = kwargs["seq"].upper()
 
 		newPart = Part(**kwargs)
 
@@ -185,10 +211,14 @@ class LoopDB(PartsDB):
 
 			partship = Partship( parent = newPart, child = child, pos = pos )
 		
-		if self.verifyPart( newPart ):
-			return super(LoopDB, self).addPart('part', newPart)
-		else:
-			return None
+		part = self._tryToUpdate(Part, **kwargs)
+		
+		if not part:
+			if self.verifyPart( newPart ):
+				return super(LoopDB, self).addPart('part', newPart)
+		
+		return None
+		
 
 	def addFeature(self, *args, **kwargs):
 		return super(LoopDB, self).addPart('feature', *args, **kwargs)
