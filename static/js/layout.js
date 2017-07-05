@@ -48,8 +48,9 @@ $(function () {
 				items :[
 					{ id: 'addNewButton', type: 'menu', caption: 'Add', img: 'w2ui-icon-plus', 
 						items:[
-							{"text" : "Add part", icon: "fa fa-circle-o-notch"},
-							{"text" : "Assemble part", icon: "fa-infinity"}
+							{"text" : "Add part", 			icon: "fa fa-circle-o-notch"},
+							{"text" : "Add multiple parts", icon: "fa fa-list"},
+							{"text" : "Assemble part", 		icon: "fa-infinity"}
 						]
 					}
 				],
@@ -57,6 +58,9 @@ $(function () {
 					switch(event.target){
 						case "addNewButton:Add part":
 							renderAddNewForm();
+							break;
+						case "addNewButton:Add multiple parts":
+							renderAddMultipleForm();
 							break;
 						case "addNewButton:Assemble part":
 							renderAssembleForm();

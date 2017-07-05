@@ -1,3 +1,61 @@
+function getAnnotation(part, annotation){
+	var n = part.children.length;
+	
+	console.log( "Annotating part with " + n + " children" );
+
+	if ( n>0 ){
+		for (var i=0; i<n; i++){
+			console.log(" Doing child " + i);
+			annotation.pos += part.children[i].site5.length;
+			annotation = getAnnotation(part.children[i], annotation);
+			console.log("Done with child " + i + " out of " + n);
+			console.log("Pos = " + annotation.pos);
+		}
+		annotation.pos += part.children[n-1].site3.length;
+	}
+	else{
+
+		annotation.coverage.push({
+			start	: annotation.pos,
+			end  	: annotation.pos + part.length,
+			bgcolor : part.color,
+			color 	: "black"
+		});
+
+		annotation.pos += part.length;
+
+		annotation.legend.push({
+			name	: part.text,
+			color	: part.color
+		});
+	}
+	return annotation;
+}
+
+function highlight(part){
+
+	// sequenceCoverage = [];
+	// legend = [];
+
+	annotation = getAnnotation(part, {coverage: [], legend: [], pos: 0});	
+
+	// sequenceCoverage.push({
+	// 	start:		start,
+	// 	end:		end,
+	// 	bgcolor:	color,
+	// 	color:		"black",
+	// 	underscore:	false   
+	// });
+	
+	// legend.push(
+	// 	{name: label, color: color, underscore: false}
+	// );
+		
+	sequence.coverage(annotation.coverage);
+	sequence.addLegend(annotation.legend);
+	
+}
+
 app.controller('preview', function($scope){
 	$scope.name = "";
 	$scope.layers = [];
@@ -10,26 +68,6 @@ app.controller('preview', function($scope){
 	$scope.click = function(event, marker){
 		part = w2ui['SideBar'].parts.find( ({text}) => ( text == marker.labels[0].text ) );
 		w2ui['SideBar'].click(part.dbid);
-		// renderPart(part.dbid);
-		// // Highlighting selected marker
-
-		// // Dirty hack to remove current legend in sequence-viewer
-		// $('.coverageLegend').empty();
-		
-		// // Getting a number according to dbid last digit - for colouring purposes
-		// var number = marker.labels[0].text.split(".")[2]
-
-		// var start = marker.start
-		// var end = marker.end
-		
-		// //var length = (marker.end - marker.start)
-		// //var start = (marker.start + length/2)
-		// ///var end = start + length
-		
-		// //console.log("Start and End")
-		// //console.log(start, end, length)
-		// var feature = [{ start: start , end: end, label: marker.labels[0].text, id: number }];
-		// highlight_selected(feature);
 	}
 	$scope.setPart = function(part){
 		$scope.layers = [];
@@ -70,11 +108,12 @@ app.controller('preview', function($scope){
 			start = 0;
 			for(j=0; j < layer.length; j++){
 				part = layer[j];
-				level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.text } );
+				level.push( { start: start - 0.5*partLen, end: start + part.length - 0.5*partLen, text: part.text, color: part.color } );
 				start += part.length;
 			}
 			$scope.markers.push(level);
 			console.log(level);
 		}
+
 	};
 })

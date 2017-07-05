@@ -1,0 +1,70 @@
+LOCUS       l0_empty                2087 bp ds-DNA     circular     29-JUN-2017
+DEFINITION  .
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     CDS             complement(1169..1828)
+                     /locus_tag="CamR"
+                     /ApEinfo_label="CamR"
+                     /ApEinfo_fwdcolor="#ffef86"
+                     /ApEinfo_revcolor="#ffef86"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    611..632
+                     /locus_tag="pUDPR"
+                     /ApEinfo_label="pUDPR"
+                     /ApEinfo_fwdcolor="#85dae9"
+                     /ApEinfo_revcolor="#85dae9"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     rep_origin      complement(283..871)
+                     /locus_tag="pMB1"
+                     /ApEinfo_label="pMB1"
+                     /ApEinfo_fwdcolor="#b4abac"
+                     /ApEinfo_revcolor="#b4abac"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    601..624
+                     /locus_tag="pUDPF"
+                     /ApEinfo_label="pUDPF"
+                     /ApEinfo_fwdcolor="#b1ff67"
+                     /ApEinfo_revcolor="#b1ff67"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 actcatcgcg actagtagcg gccgctgcag tccggcaaaa aagggcaagg tgtcaccacc
+       61 ctgccctttt tctttaaaac cgaaaagatt acttcgcgtt atgcaggctt cctcgctcac
+      121 tgactcgctg cgctcggtcg ttcggctgcg gcgagcggta tcagctcact caaaggcggt
+      181 aatacggtta tccacagaat caggggataa cgcaggaaag aacatgtgag caaaaggcca
+      241 gcaaaaggcc aggaaccgta aaaaggccgc gttgctggcg tttttccaca ggctccgccc
+      301 ccctgacgag catcacaaaa atcgacgctc aagtcagagg tggcgaaacc cgacaggact
+      361 ataaagatac caggcgtttc cccctggaag ctccctcgtg cgctctcctg ttccgaccct
+      421 gccgcttacc ggatacctgt ccgcctttct cccttcggga agcgtggcgc tttctcatag
+      481 ctcacgctgt aggtatctca gttcggtgta ggtcgttcgc tccaagctgg gctgtgtgca
+      541 cgaacccccc gttcagcccg accgctgcgc cttatccggt aactatcgtc ttgagtccaa
+      601 cccggtaaga cacgacttat cgccactggc agcagccact ggtaacagga ttagcagagc
+      661 gaggtatgta ggcggtgcta cagagttctt gaagtggtgg cctaactacg gctacactag
+      721 aagaacagta tttggtatct gcgctctgct gaagccagtt accttcggaa aaagagttgg
+      781 tagctcttga tccggcaaac aaaccaccgc tggtagcggt ggtttttttg tttgcaagca
+      841 gcagattacg cgcagaaaaa aaggatctca agaagatcct ttgatctttt ctacggggtc
+      901 tgacgctcag tggaacgaaa actcacgtta agggattttg gtcatgagat tatcaaaaag
+      961 gatcttcacc tagatccttt taaattaaaa atgaagtttt aaatcaatct aaagtatata
+     1021 tgagtaaact tggtctgaca gctcgaggct tggattctca ccaataaaaa acgcccggcg
+     1081 gcaaccgagc gttctgaaca aatccagatg gagttctgag gtcattactg gatctatcaa
+     1141 caggagtcca agcgagctcg atatcaaatt acgccccgcc ctgccactcg tcgcagtact
+     1201 gttgtaattc attaagcatt ctgccgacat ggaagccatc acaaacggca tgatgaacct
+     1261 gaatcgccag cggcatcagc accttgtcgc cttgcgtata atatttgccc atggtgaaaa
+     1321 cgggggcgaa gaagttgtcc atattggcca cgtttaaatc aaaactggtg aaactcaccc
+     1381 agggattggc tgatacgaaa aacatattct caataaaccc tttagggaaa taggccaggt
+     1441 tttcaccgta acacgccaca tcttgcgaat atatgtgtag aaactgccgg aaatcgtcgt
+     1501 ggtattcact ccagagtgat gaaaacgttt cagtttgctc atggaaaacg gtgtaacaag
+     1561 ggtgaacact atcccatatc accagctcac cgtctttcat tgccatacga aattccggat
+     1621 gagcattcat caggcgggca agaatgtgaa taaaggccgg ataaaacttg tgcttatttt
+     1681 tctttacggt ctttaaaaag gccgtaatat ccagctgaac ggtctggtta taggtacatt
+     1741 gagcaactga ctgaaatgcc tcaaaatgtt ctttacgatg ccattgggat atatcaacgg
+     1801 tggtatatcc agtgattttt ttctccattt tagcttcctt agctcctgaa aatctcgata
+     1861 actcaaaaaa tacgcccggt agtgatctta tttcattatg gtgaaagttg gaacctctta
+     1921 cgtgcccgat caactcgagt gccacctgac gtctaagaaa ccattattat catgacatta
+     1981 acctataaaa ataggcgtat cacgaggcag aatttcagat aaaaaaaatc cttagctttc
+     2041 gctaaggatg atttctggaa ttcgcgGCCG CTTCTAGAGC GATGAGT 
+//

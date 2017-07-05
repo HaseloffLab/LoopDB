@@ -32,11 +32,10 @@
 
 	],
 	"BaseSeq":[
-		{"name": "L0", "gbFile": "gb/Lk.gb" },
+		{"name": "L0", "gbFile": "gb/L0.gb" },
+		{"name": "GAL0", "gbFile": "gb/GAL0.gb" },
 		{"name": "Lk", "receiver": "AF", "gbFile": "gb/Lk.gb"},
 		{"name": "Ls", "receiver": "aw", "gbFile": "gb/Ls.gb" }
-		
-		
 	],
 	"Backbone":[
 		{"name": "Lk-1", "baseSeq" : "Lk", "adapter" : "ab" },
@@ -59,6 +58,19 @@
 		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3" },
 		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term" },
 		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3" },
-		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU" }
+		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU" },
+
+		{"name": "GAL0-Prom5", 	"baseSeq" : "GAL0", "adapter" : "prom5" },
+		{"name": "GAL0-Prom", 	"baseSeq" : "GAL0", "adapter" : "prom" },
+		{"name": "GAL0-UTR5", 	"baseSeq" : "GAL0", "adapter" : "utr5" },
+		{"name": "GAL0-CDS", 	"baseSeq" : "GAL0", "adapter" : "cds" },
+		{"name": "GAL0-CDS-", 	"baseSeq" : "GAL0", "adapter" : "cds-" },
+		{"name": "GAL0-CTAG", 	"baseSeq" : "GAL0", "adapter" : "ctag" },
+		{"name": "GAL0-CDS1", 	"baseSeq" : "GAL0", "adapter" : "cds1" },
+		{"name": "GAL0-CDS2", 	"baseSeq" : "GAL0", "adapter" : "cds2" },
+		{"name": "GAL0-UTR3", 	"baseSeq" : "GAL0", "adapter" : "utr3" },
+		{"name": "GAL0-TERM", 	"baseSeq" : "GAL0", "adapter" : "term" },
+		{"name": "GAL0-TERM3", 	"baseSeq" : "GAL0", "adapter" : "term3" },
+		{"name": "GAL0-TU", 	"baseSeq" : "GAL0", "adapter" : "TU" }
 	]
 }

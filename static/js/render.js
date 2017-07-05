@@ -7,20 +7,26 @@ renderPart = function(partDBID){
 	angular.element( $("#layout_layout_panel_preview") ).scope().setPart( part );
 	angular.element( $("#layout_layout_panel_preview") ).scope().$apply();
 	// Added reset button to sequence-viewer
-	// w2ui["layout"].content('main', "<div id='seqView'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
+	// w2ui["layout"].content('main', "<div id='seqView§'></div><button id='reset_btn' class='button right' onclick='reset();'>Reset</button>");
 
 	w2ui["layout"].content('main', "<div id='seqView'></div><div id='partTable'><table><tbody class='list'></tbody></table></div>");
 
 	socket.emit('getRecord', partDBID, function(record){
 		// Assigning global seq
-		seq = record["seq"];
+		seq = record["seq"].toUpperCase();
+		
 		// Assigning global features
 		features = record["features"];
 		sequence = new Sequence(seq);
 		sequence.render("#seqView", {"title" : part.name, "search" : true, "charsPerLine": 100, "sequenceMaxHeight": "200px"} );
+		highlight(part);
+
 
 		nChildren = part["children"].length;
+		// highlight(features);
+		// console.log(sequence);
 
+		// Rendering table
 		if (nChildren != 0){
 			valueNames = ["name", "backbone"];
 			values = [{ name: part.name, backbone: part.backbone.name }, { name: "Length", backbone: part.backbone.length.toString() + " bp" },
@@ -44,26 +50,9 @@ renderPart = function(partDBID){
 			console.log(options, values);
 
 			partList = new List("partTable", options, values);
-
-			// var options = {
-			//   valueNames: [ 'name', 'city' ],
-			//   item: '<li><h3 class="name"></h3><p class="city"></p></li>'
-			// };
-
-			// var values = [
-			//   { name: 'Jonny', city:'Stockholm' }
-			//   , { name: 'Jonas', city:'Berlin' }
-			// ];
-
-			// var hackerList = new List('partTable', options, values);
 		}
 
 
-		// Sorting features by position
-		sort_features(features);
-		// Highlighting features
-		highlight(features);
-		console.log(sequence);
 		
 	});
 }
@@ -144,9 +133,17 @@ renderAddNewForm = function(){
 						attr: 'style=width:200px',
 					}
 				},
+				{ name: 'BaseSeq', type : 'list', required: true,
+					options:{
+						items: backbones,
+						renderDrop: function(item){
+							return item.text
+						}
+				}},
+
 				{ name: 'Backbone', type : 'list', required : true,
 					options:{
-						items : backbones,
+						items : [],
 						renderDrop : function(item){
 							return item.text
 						},
@@ -162,6 +159,16 @@ renderAddNewForm = function(){
 					}
 				}
 			],
+			onChange: function(event){
+				if (event.target == "BaseSeq"){
+					var bckbField = this.get("Backbone")
+					bckbField.options.items = event.value_new.backbones;
+					this.set("Backbone", bckbField);
+					this.record["BaseSeq"] = event.value_new;
+					this.refresh();
+				}
+				
+			},
 			onValidate: function(event){
 				if ( this.record["GenBank file"] == "" && this.record["Sequence"] == "" ){
 					event.errors.push( {field: this.get("GenBank file"), error: "Either GB file or Sequence is required"  } );
@@ -192,6 +199,147 @@ renderAddNewForm = function(){
 		});
 		w2ui['layout'].content('main', form);
 		console.log(w2ui);
+	});
+}
+
+
+renderAddMultipleForm = function(){
+	socket.emit('getBackbones', function(backbones){
+
+		var layout = $().w2layout({
+			name: "AddMultipleLayout",
+			panels:[
+				{ type: "top", size: 150},
+				{ type: "main" }
+			]
+		});
+
+		$().w2field('addType', 'label', function(options){});
+
+		var form = $().w2form({
+			name : "fastaUploadForm",
+			header : "Upload FASTA",
+			fields: [
+				{ name: 'FASTA file', type: 'file', required: true,
+					options: {
+						max : 1
+					},
+					html:{
+						attr: 'style=width:300px',
+						column: 5,
+						span: 3
+					}
+				},
+			],
+			actions: {
+				"Upload" : function(event){
+					fasta = atob(this.record["FASTA file"][0].content);
+					var Fasta = require('biojs-io-fasta');
+					seqs = Fasta.parse(fasta);
+					console.log("SEQS:");
+					
+					fields = [];
+
+					for (i=0; i<seqs.length; i++){
+						fields.push({
+							field: "label_" + i.toString(), idx: i, type: 'label', required: false,
+							html: {
+								column: 1,
+								caption: seqs[i].name,
+								attr: 'style=width:0px;visibility:hidden'
+							}
+						});
+
+						fields.push({
+							field: "baseSeq_" + i.toString(), idx: i, type: 'list', required: true,
+							options: { 	items: backbones,
+										renderDrop : function(item){
+											return item.text
+										}, 
+							},
+							html: {
+								column: 2,
+								caption: "BaseSeq"
+
+							}
+						});
+
+						fields.push({
+							field: "backbone_" + i.toString(), idx: i, type: 'list', required: true,
+							options: { 	items: [],
+										renderDrop : function(item){
+											return item.text
+										}, 
+							},
+							html: {
+								column: 3,
+								caption: "Backbone"
+							}
+						});
+					}
+
+					multipleForm = $().w2form({
+						name: "multipleFileForm",
+						header: "Assign backbone",
+						fields: fields,
+						onChange: function(event){
+							if (event.target.startsWith('baseSeq')){
+								console.log( event );
+								index = parseInt(event.target.split('_')[1]);
+								this.fields[index*3 + 2].options.items = backbones.find(({text})=>(text == event.value_new.text)).backbones;
+								this.refresh("backbone_"+index.toString());
+							}
+						},
+						actions:{
+							save : function(){
+				
+
+								if (this.validate(true).length == 0){
+									for(i=0; i<this.fields.length / 3; i++){
+										record={
+											Backbone: this.record["backbone_"+i.toString()],
+											Sequence: seqs[i].seq,
+											"Part name": seqs[i].name
+										};
+										console.log("Record: ", record);
+										socket.emit("addL0", record, function(response){
+											if (response[0] == "OK"){
+												w2ui['layout'].content('main', "<i class='fa fa-check-circle-o fa-5x'></i>");
+												part = response[1]
+												levelID = "Level"+part.level.toString()
+												bID     = levelID + "-" + part.backbone.name;
+
+												w2ui['SideBar'].insert(levelID, null, {id: bID, text: bName, part:false, img: 'icon-folder'});
+												w2ui['SideBar'].insert(bID, null, {id: part.dbid, text: part.name, nodes:[], part:true, icon:"fa fa-circle-o-notch"});
+											}
+											else{
+											}
+										});
+									}
+									// console.log(records);
+									// socket.emit("addL0", this.record, function(response){
+									// 	if (response[0] == "OK"){
+									// 		w2ui['layout'].content('main', "<i class='fa fa-check-circle-o fa-5x'></i>");
+									// 		renderPartList();
+									// 	}
+									// 	else{
+									// 	}
+									// });
+								}
+							}
+						}
+					});
+
+					console.log("multipleForm: ", multipleForm);
+
+					multipleForm.refresh();
+					w2ui['AddMultipleLayout'].content('main', multipleForm);
+				}
+			}
+		});
+		w2ui['AddMultipleLayout'].content('top', form);
+		
+		w2ui['layout'].content('main', layout);
 	});
 }
 
@@ -318,7 +466,11 @@ assemblyForm = {
 		delete w2ui['assemblyForm_tabs'];
 		delete w2ui['assemblyForm_toolbar'];
 
-		socket.emit('getBackbones', function(backbones){
+		socket.emit('getBackbones', function(backboneList){
+			backbones = [];
+			for(i in backboneList){
+				backbones = backbones.concat(backboneList[i].backbones);
+			}
 			this.fields[0] = {
 				field: "selector", type: "list", required: true,
 				options:{

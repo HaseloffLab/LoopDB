@@ -4,6 +4,12 @@ from flask_socketio import SocketIO
 import json
 import base64
 from cStringIO import StringIO
+from Bio.SeqRecord import SeqRecord
+from Bio.Seq import Seq
+from Bio.Alphabet import IUPAC
+from Bio import SeqIO
+from domesticate import domesticate, partColors
+from Bio.SeqFeature import SeqFeature, FeatureLocation
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -27,7 +33,8 @@ def partToJson(part):
 	j["text"] 		= part.name if part.name else part.dbid
 	j["site5"]		= part.backbone.adapter.site5
 	j["site3"]		= part.backbone.adapter.site3
-	j["backbone"]   = backboneToJSON(part.backbone);
+	j["backbone"]   = backboneToJSON(part.backbone)
+	j["color"] 		= partColors[part.backbone.adapter.name]
 	return j
 
 def delete(dbid):
@@ -46,11 +53,11 @@ def delete(dbid):
 	for partship in parentPartship:
 		session.delete(partship)
 
+	features = session.query(Feature).filter(Feature.partID == part.id).delete()
 	session.delete(part)
 
 	session.commit()
 
-# New Jsonification for features
 def featureToJson(feature):
 	j = {}
 	if "label" in feature.qualifiers:
@@ -60,8 +67,6 @@ def featureToJson(feature):
 
 	j["start"]		= int(feature.location.start)
 	j["end"]		= int(feature.location.end)
-	# j["partID"]		= feature.partID
-	# j["id"]			= feature.id
 	j["forward"]	= feature.location.strand
 	
 	if "ApEinfo_fwdcolor" in feature.qualifiers:
@@ -69,6 +74,14 @@ def featureToJson(feature):
 	else:
 		j["color"]  = ""
 		
+	return j
+
+def baseSeqToJSON(baseSeq):
+	j = {}
+	j["name"]		= baseSeq.name
+	j["text"]		= baseSeq.name if baseSeq.name else baseSeq.dbid
+	j["dbid"]		= baseSeq.dbid
+	j["backbones"]	= list( map( backboneToJSON, baseSeq.backbones ) )
 	return j
 
 def backboneToJSON(backbone):
@@ -102,13 +115,35 @@ def export():
 @socketio.on('addL0')
 def addL0(part):
 	backbone = loopDB.session.query(Backbone).filter(Backbone.dbid == part["Backbone"]["dbid"]).first()
+
 	if part["Sequence"]:
-		loopDB.addPart(backbone = backbone, name = part["Part name"], seq = part["Sequence"])
+		record = SeqRecord( seq = Seq( part["Sequence"], IUPAC.unambiguous_dna ) )
 	else:
 		gbFile = StringIO(base64.decodestring( part["GenBank file"][0]["content"] ) )
-		loopDB.addPart(backbone = backbone, name = part["Part name"], gbFile = gbFile)
-	loopDB.commit()
-	return ["OK", ""]
+		record = SeqIO.read(gbFile, format="genbank")
+
+	record = Seq( backbone.adapter.site5, IUPAC.unambiguous_dna)\
+				+ record + Seq( backbone.adapter.site3, IUPAC.unambiguous_dna)
+
+	record = domesticate(record)
+	for feature in record.features:
+		print feature.id, feature.qualifiers
+
+	if record:
+			record = record[len(backbone.adapter.site5):-len(backbone.adapter.site3)]
+
+			record.features.insert(0, SeqFeature( FeatureLocation(0, len(record)),
+				type = "misc_feature", id = "Part Feature",
+					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
+
+			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)
+			loopDB.commit()
+			if newPart:
+				return ["OK", partToJson(newPart)]
+			else:
+				return ["Error", "Failed to insert part to LoopDB"]
+	else:
+		return ["Error", "Automatic domestication failed. Please domesticate your sequence manualy."]
 
 @socketio.on('getParts')
 def getParts(site3):
@@ -140,8 +175,9 @@ def getRecord(dbid):
 @socketio.on('getBackbones')
 def getBackbones():
 	session = loopDB.Session()
-	backbones = session.query(Backbone).all()
-	jBackbones = list( map( backboneToJSON, backbones ) )
+	baseSeq = session.query(BaseSeq).all()
+	jBackbones = list( map( baseSeqToJSON, baseSeq ) )
+	print jBackbones
 	session.close()
 	return jBackbones
 
@@ -169,4 +205,5 @@ def deletePart(dbid):
 
 
 if __name__ == '__main__':
-	socketio.run(app, debug=True,host='0.0.0.0', port = 8080)
+	loopDB.initFromFile('schema.json')
+	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
