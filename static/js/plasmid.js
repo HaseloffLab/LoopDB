@@ -1,62 +1,4 @@
-function getAnnotation(part, annotation){
-	var n = part.children.length;
-	
-	console.log( "Annotating part with " + n + " children" );
-
-	if ( n>0 ){
-		for (var i=0; i<n; i++){
-			console.log(" Doing child " + i);
-			annotation.pos += part.children[i].site5.length;
-			annotation = getAnnotation(part.children[i], annotation);
-			console.log("Done with child " + i + " out of " + n);
-			console.log("Pos = " + annotation.pos);
-		}
-		annotation.pos += part.children[n-1].site3.length;
-	}
-	else{
-
-		annotation.coverage.push({
-			start	: annotation.pos,
-			end  	: annotation.pos + part.length,
-			bgcolor : part.color,
-			color 	: "black"
-		});
-
-		annotation.pos += part.length;
-
-		annotation.legend.push({
-			name	: part.text,
-			color	: part.color
-		});
-	}
-	return annotation;
-}
-
-function highlight(part){
-
-	// sequenceCoverage = [];
-	// legend = [];
-
-	annotation = getAnnotation(part, {coverage: [], legend: [], pos: 0});	
-
-	// sequenceCoverage.push({
-	// 	start:		start,
-	// 	end:		end,
-	// 	bgcolor:	color,
-	// 	color:		"black",
-	// 	underscore:	false   
-	// });
-	
-	// legend.push(
-	// 	{name: label, color: color, underscore: false}
-	// );
-		
-	sequence.coverage(annotation.coverage);
-	sequence.addLegend(annotation.legend);
-	
-}
-
-app.controller('preview', function($scope){
+plasmidPreviewController = function($scope){
 	$scope.name = "";
 	$scope.layers = [];
 	$scope.markers = [];
@@ -66,8 +8,18 @@ app.controller('preview', function($scope){
 	$scope.length = 0;
 	$scope.url = '/static/html/plasmid.html'
 	$scope.click = function(event, marker){
-		part = w2ui['SideBar'].parts.find( ({text}) => ( text == marker.labels[0].text ) );
-		w2ui['SideBar'].click(part.dbid);
+		part = w2ui['sideBar'].parts.find( ({text}) => ( text == marker.labels[0].text ) );
+		w2ui['sideBar'].click(part.dbid);
+	}
+	$scope.clear = function(){
+		$scope.name = "";
+		$scope.layers = [];
+		$scope.markers = [];
+		$scope.range = [];
+		$scope.width = 25;
+		$scope.radius = 100;
+		$scope.length = 0;
+		$scope.url = '/static/html/plasmid.html'
 	}
 	$scope.setPart = function(part){
 		$scope.layers = [];
@@ -116,4 +68,4 @@ app.controller('preview', function($scope){
 		}
 
 	};
-})
+}

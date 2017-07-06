@@ -137,11 +137,12 @@ def addL0(part):
 					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
 
 			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)
+			print "New Part: ", newPart
 			loopDB.commit()
 			if newPart:
 				return ["OK", partToJson(newPart)]
 			else:
-				return ["Error", "Failed to insert part to LoopDB"]
+				return ["Error", "Failed to insert part to LoopDB."]
 	else:
 		return ["Error", "Automatic domestication failed. Please domesticate your sequence manualy."]
 
@@ -192,9 +193,9 @@ def submitPart(part):
 	backbone = loopDB.session.query(Backbone).filter(Backbone.dbid == part["backbone"]["dbid"]).first()
 	if len(children) == len(part["children"]) and backbone:
 
-		loopDB.addPart(name = part["name"], children = children, backbone = backbone)
+		newPart = loopDB.addPart(name = part["name"], children = children, backbone = backbone)
 		loopDB.commit()
-		return ["OK", ""]
+		return ["OK", partToJson(newPart)]
 	else:
 		return ["ERROR", "Backbone or one of the children not found"]
 

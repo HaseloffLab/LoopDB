@@ -11,21 +11,7 @@ replace = {
 
 colorMap =['#99ccff','#F96381','#ffff80','#ff9966','#ccb3ff','#4db8ff','#ffcc66','#d5ff80','#C6A49A','#56FAAF']
 
-partColors = {
-	# 'prom5' 	: "#90A437",
-	# 'prom'  	: "#566707",
-	# 'utr5'		: "#D0E086",
-	
-	# 'cds'		: "#3A3276",
-	# 'cds-' 		: "#160E4A",
-	# 'cds1'		: "#A6A2C5",
-	# 'cds2'		: "#7069A1",
-	# 'ctag'		: "#08042C",
-	
-	# 'term'  	: "#6B1B07",
-	# 'utr3'		: "#E99D8B",
-	# 'term3' 	: "#AA4E39",
-		
+partColors = {		
 	'prom5' 	: "#ffffc8",
 	'prom'  	: "#ffffc8",
 	'utr5'		: "#c8f0fa",
