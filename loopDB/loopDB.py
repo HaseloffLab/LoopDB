@@ -59,7 +59,7 @@ class LoopDB(PartsDB):
 
 		return True
 
-	partTests = [_resTest]
+	partTests = [ lambda self, part: part, _resTest]
 
 	def verifyPart(self, part):
 		for test in self.partTests:
@@ -203,21 +203,22 @@ class LoopDB(PartsDB):
 			kwargs["seq"] = str(record.seq)
 			kwargs["seq"] = kwargs["seq"].upper()
 
-		newPart = Part(**kwargs)
 
-		for pos, child in enumerate(children):
-			if isinstance(child, str):
-				child = self._get(Part, child)
-
-			partship = Partship( parent = newPart, child = child, pos = pos )
-		
 		part = self._tryToUpdate(Part, **kwargs)
-		
 		if not part:
+			newPart = super(LoopDB, self).addPart('part', *args, **kwargs)
+			
+			for pos, child in enumerate(children):
+				if isinstance(child, str):
+					child = self._get(Part, child)
+				partship = Partship( parent = newPart, child = child, pos = pos )
+
 			if self.verifyPart( newPart ):
-				return super(LoopDB, self).addPart('part', newPart)
-		
-		return None
+				return newPart
+			else:
+				return None
+		else:
+			return part
 		
 
 	def addFeature(self, *args, **kwargs):
