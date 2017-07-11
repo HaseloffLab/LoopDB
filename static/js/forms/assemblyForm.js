@@ -89,10 +89,12 @@ assemblyForm = function(backboneList){
 										console.log( form.part )
 										socket.emit("submitAssembly", form.part, function(response){
 											if (response[0] == "OK"){
-												console.log("RESPONE OK");
+												console.log("RESPONSE OK");
 												renderPartList();
 												renderPart(response[1]);
 												w2ui['sideBar'].selected = response[1].dbid;
+												// DIRTY HACK
+												location.reload();
 											}
 										});
 									}
