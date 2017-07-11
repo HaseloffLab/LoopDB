@@ -46,7 +46,6 @@ renderPartList = function(){
 
 function getAnnotation(part, annotation){
 	var n = part.children.length;
-
 	if ( n>0 ){
 		for (var i=0; i<n; i++){
 			console.log(" Doing child " + i);

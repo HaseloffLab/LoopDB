@@ -52,8 +52,8 @@ toolbar = {
 layout = $().w2layout({
 	name: 'layout',
 	panels: [
-		{ type: 'left', size: 150, resizable: true, content: sidebar},
+		{ type: 'left', size: 250, resizable: true, content: sidebar},
 		{ type: 'main', toolbar: toolbar},
-		{ type: 'preview', size: 400}
+		{ type: 'preview', resizable: true, size: 310}
 	]
 });
