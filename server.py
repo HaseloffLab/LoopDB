@@ -126,8 +126,8 @@ def addL0(part):
 				+ record + Seq( backbone.adapter.site3, IUPAC.unambiguous_dna)
 
 	record = domesticate(record)
-	for feature in record.features:
-		print feature.id, feature.qualifiers
+#	for feature in record.features:
+#		print feature.id, feature.qualifiers
 
 	if record:
 			record = record[len(backbone.adapter.site5):-len(backbone.adapter.site3)]
@@ -137,7 +137,7 @@ def addL0(part):
 					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
 
 			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)
-			print "New Part: ", newPart
+#			print "New Part: ", newPart
 			loopDB.commit()
 			if newPart:
 				return ["OK", partToJson(newPart)]
@@ -178,7 +178,7 @@ def getBackbones():
 	session = loopDB.Session()
 	baseSeq = session.query(BaseSeq).all()
 	jBackbones = list( map( baseSeqToJSON, baseSeq ) )
-	print jBackbones
+	#print jBackbones
 	session.close()
 	return jBackbones
 
