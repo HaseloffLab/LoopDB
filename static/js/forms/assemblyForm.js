@@ -93,8 +93,6 @@ assemblyForm = function(backboneList){
 												renderPartList();
 												renderPart(response[1]);
 												w2ui['sideBar'].selected = response[1].dbid;
-												// DIRTY HACK
-												location.reload();
 											}
 										});
 									}
