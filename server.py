@@ -1,7 +1,6 @@
-from loopDB import LoopDB
+from loopDB import *
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify, make_response
 from flask_socketio import SocketIO
-import os
 import json
 import base64
 from cStringIO import StringIO
@@ -18,6 +17,7 @@ app.secret_key = 'SECRET'
 
 socketio = SocketIO(app)
 
+#loopDB = LoopDB( 'postgresql:///dnalooper')
 loopDB = LoopDB('postgres://yvzfsazuhpepmv:3b1e1b321abd1c7d7851c53ee0adf25d0fa701203aa1d00def8ed8ab3deef3f8@ec2-54-83-25-217.compute-1.amazonaws.com:5432/df2063nflr5ueh')
 
 def w2uiFormToDict(request):
@@ -127,8 +127,8 @@ def addL0(part):
 				+ record + Seq( backbone.adapter.site3, IUPAC.unambiguous_dna)
 
 	record = domesticate(record)
-#	for feature in record.features:
-#		print feature.id, feature.qualifiers
+	#for feature in record.features:
+		#print feature.id, feature.qualifiers
 
 	if record:
 			record = record[len(backbone.adapter.site5):-len(backbone.adapter.site3)]
@@ -138,7 +138,7 @@ def addL0(part):
 					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
 
 			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)
-#			print "New Part: ", newPart
+			#print "New Part: ", newPart
 			loopDB.commit()
 			if newPart:
 				return ["OK", partToJson(newPart)]
@@ -208,5 +208,4 @@ def deletePart(dbid):
 
 if __name__ == '__main__':
 	loopDB.initFromFile('schema.json')
-	port = int(os.environ.get('PORT', 5000))	
-	socketio.run(app, debug=True,host='0.0.0.0', port = port)
+	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
