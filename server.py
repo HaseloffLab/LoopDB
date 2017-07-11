@@ -1,6 +1,7 @@
-from loopDB import *
+from loopDB import LoopDB
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify, make_response
 from flask_socketio import SocketIO
+import os
 import json
 import base64
 from cStringIO import StringIO
