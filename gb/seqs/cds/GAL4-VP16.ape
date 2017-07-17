@@ -1,0 +1,55 @@
+LOCUS       GAL4_VP16                681 bp ds-DNA     linear       08-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     CDS             1..681
+                     /label=GAL4-VP16
+                     /ApEinfo_fwdcolor="#bf00ff"
+                     /ApEinfo_revcolor="#ad74ff"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     misc_feature    198..204
+                     /label=SapI
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    343..348
+                     /label=BsaI
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    617..617
+                     /label=New Feature
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    70..70
+                     /label=New Feature(1)
+                     /ApEinfo_label="New Feature"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 ATGAAGCTCC TGTCCTCCAT CGAGCAGGCC TGCGACATCT GCCGCCTCAA GAAGCTCAAG
+       61 TGCTCCAAGg AGAAGCCGAA GTGCGCCAAG TGTCTGAAGA ACAACTGGGA GTGTCGCTAC
+      121 TCTCCCAAAA CCAAGCGCTC CCCGCTGACC CGCGCCCACC TCACCGAAGT GGAGTCCCGC
+      181 CTGGAGCGCC TGGAGCAGCT gTTCCTCCTG ATCTTCCCTC GAGAGGACCT CGACATGATC
+      241 CTGAAAATGG ACTCCCTCCA GGACATCAAA GCCCTGCTCA CCGGCCTCTT CGTCCAGGAC
+      301 AACGTGAACA AAGACGCCGT CACCGACCGC CTGGCCTCCG TGGAaACCGA CATGCCCCTC
+      361 ACCCTGCGCC AGCACCGCAT CAGCGCGACC TCCTCCTCGG AGGAGAGCAG CAACAAGGGC
+      421 CAGCGCCAGT TGACCGTCTC GACGGCCCCC CCGACCGACG TCAGCCTGGG GGACGAGCTC
+      481 CACTTAGACG GCGAGGACGT GGCGATGGCG CATGCCGACG CGCTAGACGA TTTCGATCTG
+      541 GACATGTTGG GGGACGGGGA TTCCCCGGGG CCGGGATTTA CCCCCCACGA CTCCGCCCCC
+      601 TACGGCGCTC TGGATAtGGC CGACTTCGAG TTTGAGCAGA TGTTTACCGA TGCCCTTGGA
+      661 ATTGACGAGT ACGGTGGGTA G   
+//

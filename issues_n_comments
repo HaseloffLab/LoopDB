@@ -1,0 +1,29 @@
+## Comments for DNALooper:
+
+1-Add feature for adding concentrations to parts for streamlined reaction calculation.
+2-Deleting of parts required for higher assemblies does not work (since it shouldn't) but no error message appears...
+3-Renaming is important (otherwise its delete and then assemble again)
+4-Page needs to be refreshed to perform a second assembly after performing one otherwise it does not work
+5-Layout need some work, maybe parametric relationshipts with vector preview?
+6-Info page about overhang type Prom5 (probably include some kind of diagram)
+7-Single part submission dropbox does not seem to work for me
+8-Part submission does not take into account the common syntax strictly. I.e. for CDS it includes AATG regardless if there is ATG.
+9-Prepend level assembled into in name?
+10-Folder should be name according to level and position. For Hybrids the highest level followed by *.
+11-Home page upper window is empty. Should we include description and references?
+12-Footer with contact info and license?
+13-Cliking on directory name should also open up directory.
+14-Sorting of categories and directory names? They tend to move around according to last assembly (entry) I think.
+15-In assembly: automatic submit when selection is performed, not its submit submit submit.
+16-Multiple part entry "change all" selection.
+17-Include GB features for REs, Overhangs.
+18-%iLike% type parameter fast selection for text inputed in selector fields for parts in assembly.
+
+## Code changes
+- Included direction (strand) in multi-part assemble, otherwise its defined as reverse if not designated
+- Changed schema to allow for "spacer" nucleotides in all vector -> DIRTY HACK - Does not always work perfectly...
+- Changed vectors and vector names
+- Changed font for vector texts in CDS.
+- Changed font sizing in vector text.
+- Changed colour schemes (just a bit).
+- Changed selector widths.

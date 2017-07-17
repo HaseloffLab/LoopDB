@@ -12,11 +12,11 @@ replace = {
 colorMap =['#99ccff','#F96381','#ffff80','#ff9966','#ccb3ff','#4db8ff','#ffcc66','#d5ff80','#C6A49A','#56FAAF']
 
 partColors = {		
-	'prom5' 	: "#ffffc8",
+	'prom5' 	: "#ffff9b",
 	'prom'  	: "#ffffc8",
 	'utr5'		: "#c8f0fa",
 	
-	'cds'		: "#beffbe",
+	'cds'		: "#a0ffa0",
 	'cds-' 		: "#beffbe",
 	'cds1'		: "#beffbe",
 	'cds2'		: "#beffbe",
@@ -24,7 +24,7 @@ partColors = {
 	
 	'term'  	: "#fac8c8",
 	'utr3'		: "#c8f0fa",
-	'term3' 	: "#fac8c8",
+	'term3' 	: "#ffa5a5",
 
 
 	'TU'		: "#beffbe",

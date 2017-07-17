@@ -1,0 +1,41 @@
+LOCUS       L0_nosT_35ST             489 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     terminator      17..269
+                     /label=nos term
+                     /ApEinfo_fwdcolor="#800000"
+                     /ApEinfo_revcolor="#800000"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     terminator      286..489
+                     /dnas_title="35S ter"
+                     /vntifkey="43"
+                     /label=35S ter
+                     /ApEinfo_fwdcolor="pink"
+                     /ApEinfo_revcolor="pink"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    464..464
+                     /label=C->T
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 gagctcgaat ttccccgatc gttcaaacat ttggcaataa agtttcttaa gattgaatcc
+       61 tgttgccggt cttgcgatga ttatcatata atttctgttg aattacgtta agcatgtaat
+      121 aattaacatg taatgcatga cgttatttat gagatgggtt tttatgatta gagtcccgca
+      181 attatacatt taatacgcga tagaaaacaa aatatagcgc gcaaactagg ataaattatc
+      241 gcgcgcggtg tcatctatgt tactagatcG ATCCGTATCG ATAGCctcta gctagagtcg
+      301 atcgacaagc tcgagtttct ccataataat gtgtgagtag ttcccagata agggaattag
+      361 ggttcctata gggtttcgct catgtgttga gcatataaga aacccttagt atgtatttgt
+      421 atttgtaaaa tacttctatc aataaaattt ctaattccta aaaTcaaaat ccagtactaa
+      481 aatccagat     
+//

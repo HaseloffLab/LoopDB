@@ -1,0 +1,55 @@
+LOCUS       mRuby3                   710 bp ds-DNA     circular     08-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     misc_feature    13..17
+                     /label=SapI
+                     /ApEinfo_fwdcolor="#3a86ff"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    19..708
+                     /label=CDS_mRuby3
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    1..17
+                     /label=CDS_mRuby3(1)
+                     /ApEinfo_label="CDS_mRuby3"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    19..19
+                     /label=SapI(1)
+                     /ApEinfo_label="SapI"
+                     /ApEinfo_fwdcolor="#3a86ff"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    611..611
+                     /label=G->T
+                     /ApEinfo_fwdcolor="#ff0000"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 GTGTCTAAGG GCGAAGAaCT GATCAAGGAA AATATGCGTA TGAAGGTGGT CATGGAAGGT
+       61 TCGGTCAACG GCCACCAATT CAAATGCACA GGTGAAGGAG AAGGCAGACC GTACGAGGGA
+      121 GTGCAAACCA TGAGGATCAA AGTCATCGAG GGAGGACCCC TGCCATTTGC CTTTGACATT
+      181 CTTGCCACGT CGTTCATGTA TGGCAGCCGT ACCTTTATCA AGTACCCGGC CGACATCCCT
+      241 GATTTCTTTA AACAGTCCTT TCCTGAGGGT TTTACTTGGG AAAGAGTTAC GAGATACGAA
+      301 GATGGTGGAG TCGTCACCGT CACGCAGGAC ACCAGCCTTG AGGATGGCGA GCTCGTCTAC
+      361 AACGTCAAGG TCAGAGGGGT AAACTTTCCC TCCAATGGTC CCGTGATGCA GAAGAAGACC
+      421 AAGGGTTGGG AGCCTAATAC AGAGATGATG TATCCAGCAG ATGGTGGTCT GAGAGGATAC
+      481 ACTGACATCG CACTGAAAGT TGATGGTGGT GGCCATCTGC ACTGCAACTT CGTGACAACT
+      541 TACAGGTCAA AAAAGACCGT CGGGAACATC AAGATGCCCG GTGTCCATGC CGTTGATCAC
+      601 CGCCTGGAAA TGATCGAGGA GAGTGACAAT GAAACCTACG TAGTGCAAAG AGAAGTGGCA
+      661 GTTGCCAAAT ACAGCAACCT TGGTGGTGGC ATGGACGAGC TGTACAAGgc 
+//

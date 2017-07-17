@@ -1,0 +1,22 @@
+LOCUS       L0_35ST                  204 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     terminator      1..204
+                     /key="Sequence_name"
+                     /label=35S_T
+                     /ApEinfo_fwdcolor="#800000"
+                     /ApEinfo_revcolor="#800000"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 ctctagctag agtcgatcga caagctcgag tttctccata ataatgtgtg agtagttccc
+       61 agataaggga attagggttc ctatagggtt tcgctcatgt gttgagcata taagaaaccc
+      121 ttagtatgta tttgtatttg taaaatactt ctatcaataa aatttctaat tcctaaaacc
+      181 aaaatccagt actaaaatcc agat   
+//
