@@ -1,0 +1,65 @@
+LOCUS       A_L0_pMpCYCA            2000 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     promoter        1..2000
+                     /key="Sequence_name"
+                     /label=MpCYCA promoter
+                     /ApEinfo_fwdcolor="#ffff00"
+                     /ApEinfo_revcolor="#ffff00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     modified_base   1087..1092
+                     /key="BsaI_mut"
+                     /label=modified_base
+                     /ApEinfo_fwdcolor="pink"
+                     /ApEinfo_revcolor="pink"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    1388..1388
+                     /label=A->G
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 ctgcgtgggt gtgaattacc ggcggtgata tctgataagt ccctaaagta caaaacccga
+       61 tcggtgccaa aggagaagcg atcccaagat tccgcacatt cgaaaaataa atacgatatt
+      121 taaaaggaga attacatgag tctctaaacc atatgaaccg gtgtggtgaa acggtgtggt
+      181 ggcaagcttg ccttttcgcc attatgaata ggatacgctt atgaagtatt tacgacagtg
+      241 acattttaaa acattgttac tatgtacgag tatatcgcat aattaaatgt cacgatgaag
+      301 aggtgatgtg aattcaggtt tagattccat aattttcaag ttattccttt tttagataat
+      361 aataattttc ataatcaatg aaaattagag tcactcttca gcattatgac aaagaaccca
+      421 agagatagat tggctacaac taacaaagga ctgcggtgtt caaaaaacgg tttagtgttg
+      481 gtcgtgaagt gtttggctct ttcagatctt catacccaat taatttgatt gtgaattaaa
+      541 atgctataca ttaagaaaat gcagtgagaa atataataac gtaatcgcct gccttcctag
+      601 caaaaaagac gatgaaactt tggagggaag ctttgcggtt tccaattttc gtagagaaat
+      661 atgtactatt gaatttcacg gcatcacaaa tatattttga aataaaacgc ttgcatgtcg
+      721 aaattcaatg cgaattattc gtaatcgccc gcctttctcg tccaatcatg aagggcgaca
+      781 cttgtcaaca caaggagacg cccgagagtc aggtacgtcg ctgatatacc gacccaagga
+      841 ctttactcgt cccaaggacc cgaaggcagg gctctgtcgc gagacagata cacgtggtgg
+      901 aagcagatcg ttccacacag gcccgttaag tccaaacggg ccgagaggag ggcgggaagt
+      961 ttgagctcca aggaaaagtt caagttcaag tccgtttgct acagttaaag tcggtggtcg
+     1021 tgggaaagta ctgggcccgg ggaaaaaagg aagactcgga cccgaaggca gcacgcacgc
+     1081 agaggcgaaa cccgtcgaag gaggcgaggg gaggcggcag cgcgggggga aaattcaaag
+     1141 ttgatttcaa acgaggaaat tcgcgctggt tcggaagttt gtgacatact ttgcctcgtt
+     1201 tgagtgccga cgcgagggag cgagcgagag agcgcgaagg aggagggagg tgcgggtgat
+     1261 ggggctgatt cttcccggct tttccaggca tctcctcggg tatagttgcc aggctcatga
+     1321 gggattgaaa ttcctgatct gcctgaggtc ccgtagctgg tctgattgag ctcgcttcgc
+     1381 ctggcgcGcg cacggagcga gagtgttcga gagcatcggt cgccacttcg ccgtattccg
+     1441 agaaggattc ttgaggattg aaggccaggg agatggaatt ggagttggag tgaaaggcgc
+     1501 ctgcattgtc gtgcgagaga gctcgaggcg gccgattcgt tctcgttctc gattcgttct
+     1561 cctttctcgt tctcctcagg cttagatatg ctctaggcac ttcgaagtct tcatcaagac
+     1621 gcgcttcctt acgacatctg agaggtagtt tgttttggag gttacaggtg ctggcattcg
+     1681 gtcgagtttc catccgtaga cgagcccctc cctctgaact gactctctcc ctgctagacg
+     1741 atttgcgttc agcttgttcg ttcgtaggtt ctgagaacat cgtttcttca tcttgttttc
+     1801 atcttctagg actccgctcg tacctcctca cttttgctag acctatgcaa cgaggagcag
+     1861 gcatgctgtc ttgctcgcac cttatgcctc ccagtgcctg ttaggcccac atctatgtcg
+     1921 gagctctagg cagttgtgtt ggaggggagg gaagcaaggc aggagtgtac agggtttgga
+     1981 gaagcagtct tcactgaaga    
+//

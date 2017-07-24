@@ -174,7 +174,7 @@ def addL0(part):
 			record = record[len(backbone.adapter.site5):-len(backbone.adapter.site3)]
 
 			record.features.insert(0, SeqFeature( FeatureLocation(0, len(record)),
-				type = "misc_feature", id = "Part Feature",
+				type = "misc_feature", id = "Part Feature", strand = 1,
 					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
 
 			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)

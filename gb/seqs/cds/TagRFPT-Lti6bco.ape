@@ -1,0 +1,55 @@
+LOCUS       TagRFPT_Lti6bco          948 bp ds-DNA     circular     08-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     CDS             946..948
+                     /key="Sequence_name"
+                     /label=TagRFP-Tco
+                     /ApEinfo_fwdcolor="#ff0000"
+                     /ApEinfo_revcolor="#ff0000"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     CDS             1..945
+                     /key="Sequence_name"
+                     /label=TagRFP-Tco(1)
+                     /ApEinfo_label="TagRFP-Tco"
+                     /ApEinfo_fwdcolor="#ff0000"
+                     /ApEinfo_revcolor="#ff0000"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     misc_feature    730..768
+                     /label=Linker
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    769..945
+                     /label=Lti6b
+                     /ApEinfo_fwdcolor="#ff8000"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 gtttctaagg gagaagaact tatcaaggaa aacatgcaca tgaagctcta tatggagggc
+       61 acagtcaata accatcattt taagtgcact agtgaaggcg aagggaagcc ttacgaagga
+      121 acacaaacga tgagaattaa ggtggtagaa ggggggccat tgccgtttgc gttcgatatt
+      181 ctagccacgt ctttcatgta tgggagtcga acttttataa accatacgca gggtattccc
+      241 gacttcttca agcagtcttt cccggagggt tttacatggg agagggtaac cacgtatgag
+      301 gatggcggcg tattgactgc gacccaggac accagtttac aagatggctg tctaatctac
+      361 aacgtcaaaa ttcgtggcgt aaactttccg agtaacggtc cggtcatgca gaaaaaaaca
+      421 ttgggatggg aagccaacac ggaaatgctc taccccgcag atggcgggct tgagggaagg
+      481 acagacatgg ctcttaaatt ggtaggcggg ggccatctaa tttgtaactt caaaaccacg
+      541 tataggagta agaagccggc aaaaaacctg aaaatgccgg gggtatatta cgtcgatcac
+      601 cgtctggaac gaatcaagga agcagataag gagacatatg ttgaacagca tgaagttgcc
+      661 gtcgcaaggt actgcgactt accatctaaa cttggacaca aattgaatgg aatggatgag
+      721 ctctacaaaa gtggcgcagc ggcagctgct gctgccgccg cagctgaatt caaaagactg
+      781 aaaatgtcaa cagctacgtt cgtggagatt atattagcga ttattctacc ccccctgggt
+      841 gtctttctta agttcgggtg caaggtagaa ttttggatat gccttatatt aacactcttt
+      901 ggttacttac ccggaatcct atatgcattg tatataatca ccttttga 
+//

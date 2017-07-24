@@ -24,9 +24,9 @@
 }
 
 .mlabel{ 
-	fill:#c00;
-	font-size:8px;
-	font-weight:bold;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-size:8.5px;
+	font-weight: light;
 }
 
 .t1{
@@ -35,10 +35,20 @@
 }
 
 #p1{
-	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	/*font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;*/
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	border:0px solid #ccc;
+	font-size: 12px;
+	
 }
 
+#selector{
+	width: 200px;
+}
+
+input{
+	width: 200px;
+}
 
 /*Table*/
 table {
