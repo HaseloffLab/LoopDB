@@ -8,10 +8,18 @@
 	left: 20px;
 	cursor: pointer;
 }
-.trash{
+
+.edit{
 	position: absolute;
 	top: 20px;
 	left: 60px;
+	cursor: pointer;
+}
+
+.trash{
+	position: absolute;
+	top: 20px;
+	left: 100px;
 	cursor: pointer;
 }
 
@@ -44,4 +52,34 @@ table {
 
 .list tr:first-child{
 	 font-weight: bold;
-};
+}
+
+#introContainer{
+	text-align: center;
+	margin: 0 auto;
+	width: 30em;
+}
+
+#introContainer p{
+	text-align: justify;
+}
+
+#aboutContainer{
+	text-align: center;
+	margin: 0 auto;
+}
+
+#footerContainer{
+	text-align: right;
+	margin: auto 20px;
+}
+
+#loopImg{
+	position: relative;
+	top: 3px;
+}
+
+#searchField{
+	position: relative;
+	top:10px;
+}

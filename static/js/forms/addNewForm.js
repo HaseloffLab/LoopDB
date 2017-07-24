@@ -1,4 +1,4 @@
-addNewForm = function(backbones){
+function addNewForm(backbones){
 	return $().w2form({
 		name : "addNewForm",
 		header : "Add new part",
@@ -6,7 +6,7 @@ addNewForm = function(backbones){
 		fields : [
 			{ name: 'Part name', type: 'text', required: true,
 				html:{
-					attr: 'style=width:200px'
+					attr: 'style=width:400px'
 				}
 			},
 			{ name: 'GenBank file', type: 'file', required: false,
@@ -22,7 +22,7 @@ addNewForm = function(backbones){
 					}
 				},
 				html:{
-					attr: 'style=width:200px',
+					attr: 'style=width:400px',
 				}
 			},
 			{ name: 'BaseSeq', type : 'list', required: true,
@@ -31,7 +31,11 @@ addNewForm = function(backbones){
 					renderDrop: function(item){
 						return item.text
 					}
-			}},
+				},
+				html:{
+					attr: 'style=width:200px'
+				}
+			},
 
 			{ name: 'Backbone', type : 'list', required : true,
 				options:{
@@ -69,6 +73,9 @@ addNewForm = function(backbones){
 			if (w2ui['sideBar'].parts.find( ({name}) => name == this.record["Part name"] )){
 				event.errors.push( {field: this.get("Part name"), error: "Part name already exists"} );
 			}
+			if (this.record["Sequence"].match(new RegExp("[^ATCGatcg]", "g"))){
+				event.errors.push( {field: this.get("Sequence"), error: "Invalid characters detected"  } );
+			}
 		},
 		actions:{
 			"Save" : function(event){
@@ -79,9 +86,13 @@ addNewForm = function(backbones){
 						console.log("RESPONSE", response);
 						if (response[0] == "OK"){
 							w2ui['layout'].content('main', "<i class='fa fa-check-circle-o fa-5x'></i>");
-							renderPartList();
-							renderPart(response[1]);
-							w2ui['sideBar'].selected = response[1].dbid;
+							
+							
+							renderPartList(function(){
+								w2ui['sideBar'].expandParents(response[1].dbid);
+								w2ui['sideBar'].click(response[1].dbid);
+							});
+
 						}
 						else{
 							w2alert(response[1]);

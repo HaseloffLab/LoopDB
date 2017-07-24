@@ -1,7 +1,7 @@
 {
 	"RE": [
 		{"name" : "BsaI", "seq" : "GGTCTCA"},
-		{"name" : "SapI", "seq" : "GGTCTCA"}
+		{"name" : "SapI", "seq" : "GCTCTTCA"}
 	],
 	"RES":[
 		{"name": "AB", "re": "BsaI", "site5": "GGAG" , "site3": "TACT" },
