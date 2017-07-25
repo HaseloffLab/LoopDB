@@ -10,10 +10,20 @@ sidebar = $().w2sidebar({
 	}
 });
 
+searchField = '<div id="searchField" class="w2ui-field"><label style="position:relative;top:-6px;left:-3px;width:30px"><i class="fa fa-search" aria-hidden="true"></i></label><input type="combo"></div>'
+
+leftBar = $().w2layout({
+	name: "leftBar",
+	panels: [
+		{type: "top", size: 40, content: searchField, overflow: 'hidden'},
+		{type: "main", content: sidebar}
+	]
+});
+
 toolbar = {
 	name: "toolbar",
 	items :[
-		{ id: 'logo', type: 'html', html: '<img src="static/img/Logo.png" style="height:30px">'},
+		{ id: 'logo', type: 'html', html: '<img src="static/img/LoopDesigner.png" style="height:30px">'},
 		{ id: 'spacer', type: 'spacer'},
 		{ id: 'add', type: 'menu', caption: 'Add', img: 'w2ui-icon-plus', 
 			items:[
@@ -34,14 +44,33 @@ toolbar = {
 					icon: "fa-infinity"
 				}
 			]
+		},
+		{ type: 'break' },
+		{ id: 'about', type: 'button', caption: 'About', icon: 'fa fa-info', onClick: function(event){
+				w2ui['layout'].load('main', '/static/html/about.html');
+			}
 		}
 	],
 
 	onClick: function(event) {
 		console.log(event);
 		if (event.target in formConstructor.forms){
-			var form = formConstructor.forms[event.target]; 
+			
+			var form = null;
+
+			//Dynamic forms
+			if (typeof formConstructor.forms[event.target] === 'function'){
+				form = formConstructor.forms[event.target]();
+			}
+			//Static forms
+			else{
+				form = formConstructor.forms[event.target]; 
+			}
+			
+			console.log("FORM: ", form);
+
 			form.clear();
+
 			renderPart(null);
 			w2ui['layout'].content( 'main', form );
 		}
@@ -52,8 +81,9 @@ toolbar = {
 layout = $().w2layout({
 	name: 'layout',
 	panels: [
-		{ type: 'left', size: 250, resizable: true, content: sidebar},
+		{ type: 'left', size: 300, resizable: true, content: leftBar, minSize:200},
 		{ type: 'main', toolbar: toolbar},
-		{ type: 'preview', resizable: true, size: 310}
+		{ type: 'preview', resizable: true, size: 300},
+		{ type: 'bottom', size: 56}
 	]
 });

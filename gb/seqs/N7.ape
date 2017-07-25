@@ -1,0 +1,47 @@
+LOCUS       A_L0_N7                  255 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     
+COMMENT     no BsmBI
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     transit_peptide 1..29
+                     /vntifkey="4"
+                     /note="Coding"
+                     /label=N7
+                     /ApEinfo_fwdcolor="#ff6a00"
+                     /ApEinfo_revcolor="#ff6a00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    25..29
+                     /label=SapI
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     transit_peptide 31..252
+                     /vntifkey="4"
+                     /note="Coding"
+                     /label=N7(1)
+                     /ApEinfo_label="N7"
+                     /ApEinfo_fwdcolor="#ff6a00"
+                     /ApEinfo_revcolor="#ff6a00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    31..31
+                     /label=SapI(1)
+                     /ApEinfo_label="SapI"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 GCTGCAGCGG CCGAATTCAA GCGTGAAGAa CAAGCAAGGA AAGCTAAGGT GAACAATGAG
+       61 AAAAAGACGG AAATAGTGAA ACCAGAGAGT TGTAGCAATG AAGGAGATGT CAAGGATCTG
+      121 AAAAGAAAGG ACTCTGAGGA TGGAAACGAG GGTGAGGAAG AAGAAGCTTC TTCGAAACCG
+      181 AAAAAGCCAA AAGTTGCTCT TTCTCATCTT CAGGACATTG ACGACACAGA AGCTGATCAA
+      241 GAAGAAGAGT AAtga    
+//

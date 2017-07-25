@@ -15,6 +15,29 @@ downloadPart = function(){
 	}
 }
 
+editPart = function(){
+	part = w2ui['sideBar'].parts.find( ({dbid}) => ( dbid == w2ui["sideBar"].selected ) );
+	if ( part!= undefined ){
+		w2prompt({
+			label	: "New Name",
+			value	: part.text,
+			title	: "Change Part Name",
+			ok_text	: "Submit",
+			cancel_text	: "Cancel"
+		})
+		.ok( function(event){
+			socket.emit("editName", part.dbid, event, function(response){
+				part.text = event;
+				part.name = event;
+				renderPartList(function(){
+					w2ui['sideBar'].expandParents(response[1].dbid);
+					w2ui['sideBar'].click(response[1].dbid);
+				});
+			});
+		} );
+	}
+}
+
 deletePart = function(){
 	part = w2ui['sideBar'].parts.find( ({dbid}) => ( dbid == w2ui["sideBar"].selected ) );
 	console.log(part);
@@ -23,9 +46,24 @@ deletePart = function(){
 		title: 'DNALooper'
 	})
 	.yes(function(){
-		socket.emit('deletePart', part.dbid, function(response){
-			renderPartList();
-			renderPart(null);
+		socket.emit('deletePartSoft', part.dbid, function(response){
+			if (response[0] == "OK"){
+				w2ui['sideBar'].remove(response[1]);
+				renderPart(null);
+			}
+			else{
+				w2confirm({
+					msg: 'Deleting this part will also delete some parts that are dependent on it. Do you want to proceed ?',
+					title: 'Warning!'
+				})
+				.yes(function(){
+					socket.emit('deletePartHard', part.dbid, function(response){
+						w2ui['sideBar'].remove(response[1]);
+						renderPart(null);
+					})
+				})
+				.no(function(){});
+			}
 		});
 	})
 	.no(function(){});
@@ -39,7 +77,8 @@ $(function () {
 
 	// Rendering layout defined in layout.js
 	$('#layout').w2render('layout');
-	
+	w2ui['layout'].load('main', '/static/html/intro.html');
+	w2ui['layout'].load('bottom', '/static/html/footer.html');
 	// Setting bindings for angularPlasmid
 	$( w2ui['layout'].el('preview') ).attr("ng-include", "url");
 

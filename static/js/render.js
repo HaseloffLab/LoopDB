@@ -1,13 +1,52 @@
 // Load parts from server and render into SideBar
-renderPartList = function(){
 
-	console.log("Rendering part list");
+function sortedDict(dict){
+	var keys = Object.keys(dict);
+	keys.sort( (a,b) => a.localeCompare(b) );
+	
+	var sortedDict = {};
 
+	for(var i=0; i < keys.length; i++){
+		sortedDict[keys[i]] = dict[ keys[i] ];
+	}
+
+	return sortedDict;
+}
+
+function sortedParts(parts){
+	
+	var sortedParts = [];
+	var sortedKeys = parts.map( ({text}) => text);
+	sortedKeys.sort( (a,b) => a.localeCompare(b) );
+	for(var i=0; i<sortedKeys.length; i++){
+		key = sortedKeys[i];
+		sortedParts.push( parts.find( ({text}) => text==key) );
+	}
+
+	return sortedParts;
+}
+
+renderPartList = function(callback){
+
+	console.log("Rendering part list with callback", callback);
 	socket.emit('getParts', '', function(parts){
-		
 		w2ui['sideBar'].parts = parts;
 		w2ui['sideBar'].remove.apply(w2ui['sideBar'], w2ui['sideBar'].nodes.map( ({id}) => id ));
+		
+		$('input[type=combo]').w2field('combo', {
+			items: parts.map( ({text, id}) => ({text:text, id: id}) )
+		});
+		$('input[type=combo]').on('change', function(event){
+			part = w2ui['sideBar'].parts.find( ({text}) => ( text == event.currentTarget.value ) );
+			if (part.dbid != w2ui['sideBar'].selected){
+				w2ui['sideBar'].expandParents(part.dbid);
+				w2ui['sideBar'].click(part.dbid);
+				$('#searchField input')['0'].value="";
+			}
+		});
+
 		levels = [];
+		
 		for(i=0; i<parts.length; i++){
 			part = parts[i];
 			level = part.level;
@@ -34,13 +73,18 @@ renderPartList = function(){
 
 			w2ui['sideBar'].add({id: levelID, text: levelID, group: true, part:false }); 
 
-			for(var bName in levels[i]){
+			for(var bName in sortedDict(levels[i]) ){
 				bID = levelID + "-" + bName;
 				w2ui['sideBar'].insert(levelID, null, {id: bID, text: bName, part:false, img: 'icon-folder'});
-				w2ui['sideBar'].insert(bID, null, levels[i][bName]);
+				w2ui['sideBar'].insert(bID, null, sortedParts(levels[i][bName]) );
 			}
 		}
-
+		console.log("Doing Callback", callback);
+		if (callback != null){
+			callback();
+		}
+		
+		console.log("Done Callback");
 	});
 }
 

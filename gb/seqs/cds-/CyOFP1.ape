@@ -1,0 +1,43 @@
+LOCUS       CyOFP1                   702 bp ds-DNA     circular     08-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     CDS             1..700
+                     /key="Sequence_name"
+                     /label=CyOFP1
+                     /ApEinfo_fwdcolor="#ff0000"
+                     /ApEinfo_revcolor="#ff0000"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     misc_feature    300..300
+                     /label=Silent mut
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    382..386
+                     /label=DISPUTED
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 gtgagcaagg gcgaggagct gatcaaggag aacatgagaa gcaagctgta cctggaaggc
+       61 agcgtgaacg gccaccagtt caagtgcacc cacgaagggg agggcaagcc ctacgagggc
+      121 aagcagacca acaggatcaa ggtggtggag ggaggccccc tgccgttcgc attcgacatc
+      181 ctggccaccc actttatgta cgggagcaag gtgttcatca agtaccccgc cgacctcccc
+      241 gattatttta agcagtcctt ccctgagggc ttcacatggg agagagtcat ggtgttcgag
+      301 gacgggggcg tgctgaccgc cacccaggac accagcctcc aggacggcga gctcatctac
+      361 aacgtcaagg tcagaggggt gAACTTccca gccaacggcc ccgtgatgca gaagaaaaca
+      421 ctgggctggg agcccagcac cgaaaccatg taccccgctg acggcggcct ggaaggcaga
+      481 tgcgacaagg ccctgaagct cgtgggcggg ggccacctgc acgtcaactt caagaccaca
+      541 tacaagtcca agaaacccgt gaagatgccc ggcgtccact acgtggaccg cagactggaa
+      601 agaatcaagg aggccgacaa cgaaacctac gtcgagcagt acgagcacgc tgtggccaga
+      661 tactccaacc tgggcggagg catggacgag ctgtacaagt gc 
+//

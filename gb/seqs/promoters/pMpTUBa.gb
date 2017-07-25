@@ -1,0 +1,44 @@
+LOCUS       A_L0_pMpTUBa            1006 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     promoter        1..82
+                     /key="Sequence_name"
+                     /label=MpTUBa1000
+                     /ApEinfo_fwdcolor="#80ff00"
+                     /ApEinfo_revcolor="#80ff00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     promoter        92..1006
+                     /key="Sequence_name"
+                     /label=MpTUBa1000(1)
+                     /ApEinfo_label="MpTUBa1000"
+                     /ApEinfo_fwdcolor="#80ff00"
+                     /ApEinfo_revcolor="#80ff00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+ORIGIN
+        1 gcatgtaccg cgctcttatg aaaggttagg gagctcgcta aatggtaatt cgtcgattag
+       61 ggcttcatga ctgatcacga tcACGATCAC Gttgtgggaa ctggaaacga cttttcttca
+      121 gggaattaca ctttaagatg atttgggata tttacgaact tgttaaccgt atgagtgtgt
+      181 tctgatactg caagtacaaa tcggataggg gctttgttca ctcatgaatc gtacttagaa
+      241 atagatgact gggatagaag gttaagcagg acatgttcct agcctttttg cgctaataaa
+      301 tttcatttga gcgaatataa gccgataaaa agtggcggca gacggtgttt gaggcataac
+      361 ttaatccgtg gaattaaaag tgtcagaagc gagagtacag taatgacatt gttcttaaca
+      421 caagtcggag aaggttccat gtgttcttgt aacgacgcgg aaagcaggtg cggcaaaagc
+      481 tggcgaaagt ggcgagagag tgagacaaag ggagatatta ttccaagggc agcccgagaa
+      541 atcatcaacg ggcggggtca acgaggagcc gctctcttca ccccgcgtgg cgcggcgctg
+      601 gtccgctccc cgtcttctcc cgtcgtctgc cctgcccggc gttgccctcg cccggcccag
+      661 cccggcccgc gctgcgctgc attgccctgg cccggtcgtc ctttgccttc ccttctcgtg
+      721 ctgcgttggc tgcgagacat cgcttactag tcgcgaatgt tgtagatctt catctctgct
+      781 tgtgccgttg ttgttctctg tgcgcttgtg ctgcgcatcc gttgccttgc ctgtcctccc
+      841 tcctcgcgca gcgttcgtga gcgtcctcga cacgctcgcc ggctgccttt cattacttgt
+      901 tctctcgcct cccatctctc gtctctcgcc ttctgttctc ttcctcaatt ttccgatctc
+      961 ttataccatc gatcgatctg atcaggagga agcaggcacg acgaga 
+//

@@ -1,0 +1,59 @@
+LOCUS       A_L0_pMpSCR1            1685 bp ds-DNA     circular     07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     
+COMMENT     
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     misc_feature    1..1559
+                     /label=MpSCR-1 promoter
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     modified_base   510..515
+                     /label=BsaI_mut
+                     /ApEinfo_fwdcolor="pink"
+                     /ApEinfo_revcolor="pink"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    1560..1685
+                     /label=5'UTR
+                     /ApEinfo_fwdcolor="#ffcc66"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 gctctctttt cttggctcga ctgtacctgg tacacctgct gcgtccttcc taggccttct
+       61 tgttcagtgc tccgctctcc ggagccattc ccatcgatgt tcatattgca acgcgtacgt
+      121 tagctacgag tggagtggag tgcagtggag tggagtggag tgcagtgcag tgcagtgaag
+      181 tgcagcgcag tgcgccgggc tgggcctctc tcactgtctc tctctctctc tctcgccgct
+      241 tctgtgtgtg cgccgaacat tgtgaatttg ctctcgttgc gtttatgttt gctgctatgc
+      301 tacctctcac ttcattcctg tttttcgaat tccgctatcg cctcccgtag ccagcagcag
+      361 cagcacaggc agcagcagga ggaggaagag gcagcaggcc agcaggcagg cagacagcag
+      421 gcaggccagc agcagctgct gctgcaaatt tctcttatat aaaggaagca gccctagggg
+      481 ccgggagttc attcactatt taggaactcg gactcgacct caaacctcgg tatgatccgc
+      541 atcccaccgc accatgaagc actcgctcgt cgcgtgggct gcgggacctt gtgctgctgg
+      601 aggaggtcga tgccgctgag gtcgggacgc actcatgcca ttcacgtagc cccatcccag
+      661 agcttgtgat ctcgcgctgc agcagccggt ttgaacatgg cagggtctta aggtcatgag
+      721 cgtatatgat ccccgaggac ttgcggaatt ttccaggaag aaggggcctg gatgtgaaac
+      781 gaaggcccgg cgatctgcag ataagggaag cgcagcaatt tgctgagtat gggtgaggga
+      841 cagtcgttag tcacagaagc gggcgaagaa gctagaggca ccggactcat tcccacagac
+      901 aaagccatca gggtaggggt tcagctcaag tacgaacaag gccacggatc ctccgcctcc
+      961 ctagacatct ccatctgcaa attataggat gcgcccgagc tctcgagcat ttcgtccaca
+     1021 ggtttagaga ctctcgtcga tctcaggcga cgggtttatt tttctagctc agacgaagac
+     1081 gtcgacgagg ggtttagaac tcggaggatt tttgcttgcc tcccaccacc gcgtccgctc
+     1141 ggggtcccgg acaatcaccg tctcgcgcag tcgagtcgag tcaagtccag tggcttcgat
+     1201 ttgttttggg aaccatcaga agtagcagtt agctcgtatc gaagcatatc agagagcagt
+     1261 cgacgaaatt tgggcagcgg cagcgcgtct cggcgcaccg tgcacgcgta cttgcttgcg
+     1321 tgcgtgcgtg catccatcca agggatttca cgtcccacgc gcagtgtcgg tgctcgggga
+     1381 ctcgagaagg cgcagctcgc gagcggagtc cggagtcggc gaaggcggcg agggggtaga
+     1441 attccagatt tctcgagcgc cgtcgggggc agcgtagcgc tagccatcca gggggaggag
+     1501 cattgggggg gtgaaaattc aggtcgcggg cagcggggcg agggcgaggc gcgccgaatT
+     1561 GGGACATGAG GGGGCGATCA GGGGCGGAGC GGGGGCTCAG AGACAGCTAG AGGGCCGCAG
+     1621 TCTGCCGGCG CGCCTCATAC CCATGAGATG TGTCCCCCTT GGAGACTGAA GGAGGGTAGT
+     1681 AAAAT     
+//

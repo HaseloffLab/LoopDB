@@ -2,16 +2,64 @@
 	content: "∞";
 }
 
+h1{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: lighter;
+	color: #222;
+	font-size: 25px;
+}
+
+h2, h4{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: lighter;
+	color: #555;
+	font-size: 20px;
+}
+
+.w2ui-node-group{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+	font-weight: lighter;
+}
+
+.w2ui-node-caption{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: lighter;
+}
+
+p{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: lighter;
+	color: #888;
+	line-height: 130%;
+}
+.footer{
+	font-size: 14px;
+}
+
+#partTable{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+	font-weight: lighter !important;
+	color: #666 !important;	
+}
+
 .download{
 	position: absolute;
 	top: 20px;
 	left: 20px;
 	cursor: pointer;
 }
-.trash{
+
+.edit{
 	position: absolute;
 	top: 20px;
 	left: 60px;
+	cursor: pointer;
+}
+
+.trash{
+	position: absolute;
+	top: 20px;
+	left: 100px;
 	cursor: pointer;
 }
 
@@ -32,6 +80,7 @@
 	border:0px solid #ccc;
 	font-size: 12px;
 	
+
 }
 
 #selector{
@@ -44,14 +93,46 @@ input{
 
 /*Table*/
 table {
-	margin-top: 100px;
+	margin-top: 50px;
 }
 .list td{
 	width: 150px;
 	text-align: left;
-	border: 1px solid #ddd;
+	color: #333;
 }
 
 .list tr:first-child{
-	 font-weight: bold;
-};
+	font-weight: bold;
+	border-bottom: 1px #333 solid;
+	color: #333;
+}
+
+#introContainer{
+	text-align: center;
+	margin: 0 auto;
+	width: 30em;
+}
+
+#introContainer p{
+	text-align: justify;
+}
+
+#aboutContainer{
+	text-align: center;
+	margin: 0 auto;
+}
+
+#footerContainer{
+	text-align: right;
+	margin: auto 20px;
+}
+
+#loopImg{
+	position: relative;
+	top: 3px;
+}
+
+#searchField{
+	position: relative;
+	top:10px;
+}

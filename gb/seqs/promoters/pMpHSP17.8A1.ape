@@ -1,0 +1,92 @@
+LOCUS       A_L0_pMpHSP17_8A        1202 bp ds-DNA     circular     07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     promoter        1..1048
+                     /label=MpHSP18.7A1 promoter
+                     /ApEinfo_fwdcolor="#ff8000"
+                     /ApEinfo_revcolor="#ffff00"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 10 offset 0"
+     5'UTR           1049..1202
+                     /label=HSP17.8A1-5'UTR
+                     /ApEinfo_fwdcolor="#4c4c4c"
+                     /ApEinfo_revcolor="#4c4c4c"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    189..204
+                     /label=HSE
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    381..395
+                     /label=HSE(1)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    461..479
+                     /label=HSE(2)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    700..714
+                     /label=HSE(3)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    860..874
+                     /label=HSE(4)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    899..923
+                     /label=HSE(5)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    59..72
+                     /label=HSE(6)
+                     /ApEinfo_label="HSE"
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 CCAGCCATTA TAGCAACTAT GTTAAAAGTG ACAGTTTTCT CTAATCGGGA ATCTTGTCCG
+       61 TATTGAAAGT TCCCTGTTCA GTGACTGAGC CGCTTAATAA TATTTTCAGT TTCGAGTACG
+      121 AGGGAGAGAT TGAACAAATT TTGGGGTTTC AGGGCTAAAT TCTGCAGGGG CTTTAGTTTT
+      181 GAGTCGGGTG AAACTTTCCT AAGTCTTGGC AATGAACTCA CATTCGCCAT TGTACCTATT
+      241 AAATGACCCA AACATCCTTG ACAACAAATT GACAAGTACG GGAACATGAT CTTCAATATG
+      301 AAATTTAATA TGTCCTTTAT GTTGGCTTTC CTCATCAATG ATTGGAAACT CACATACAAA
+      361 GAAAAGCGTG ATATAATAAA TCACTAGAAT CTTCTCCGCT TTCTAAGACA GTAATGATGG
+      421 ATCCACGTGA GTGTGAAACA TCAATATCAA CATCGGTAGG AGTAGAGAAG TTTCTAAATC
+      481 AGAAAAAGTG AATAGACAAG ACAACTTACT CCTTGAACGA GAATATTCCT CGAGAAAGAG
+      541 GGAAAAGAGT AAAAAGAGTA AAAAGCCATG GTACAGAATA GCCCATTCCA TGGTTATTGC
+      601 AGTCAAACCG CTACGCCAGC AAAAACGGAA CGAAACTAAA CCCGTTCCAC AAATTGCGAA
+      661 AGATGGAATG TATTCGCCAT GTATATTTCG AGATTATTAT GAGACTTCCG GTCCCGGGAA
+      721 GATGGCCTGG GTTCACCGGG ATCAGCCGAA TTCCGACGTG ATGGAGCACG GCCATGCATA
+      781 CTTCTAGAGA AGTCGGCCAC CGTGAAATTC GACGACGAGA TGGTACTAGA ATCACCGGGA
+      841 CAGTACACAC CTCGTTCATG GCCTCGAGCA TTCGATGTCG CTCTCACCTG CACAGCCTCG
+      901 AGGTATCGAG AGGGTTCTAG GATGGACCAG CGATGTCTCG AGGAATTTAG AAAGATTTCA
+      961 TGCGCTCGTT GTGTGAGAGC CAAGGAAGCA CATTATGGGG CCTATAAGTA CCACGCAAGG
+     1021 GCCTGGGGTT CCCATCAATC AAATCAGTGT TCAGACGATT TCCTCAAGCG ATCATTGCAC
+     1081 CGTGATCAGT GAAGCACAGA CTTCAAGCTT TTGGCTTGCC TACTTCCACG TTCCCATCCG
+     1141 AGATCGACAC CGAATTGTTG AGTTCTGTCT GATCTTCCTG CAGTCGAGAG CGAAGTTCCA
+     1201 CC     
+//
