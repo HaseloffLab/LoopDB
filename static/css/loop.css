@@ -122,6 +122,10 @@ table {
 	margin: 0 auto;
 	width: 30em;
 }
+#aboutContainer p{
+	text-align: justify;
+}
+
 
 #footerContainer{
 	text-align: right;
