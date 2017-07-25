@@ -120,6 +120,7 @@ table {
 #aboutContainer{
 	text-align: center;
 	margin: 0 auto;
+	width: 30em;
 }
 
 #footerContainer{
