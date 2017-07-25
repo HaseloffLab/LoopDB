@@ -110,7 +110,7 @@ table {
 #introContainer{
 	text-align: center;
 	margin: 0 auto;
-	width: 30em;
+	width: 40em;
 }
 
 #introContainer p{
@@ -120,7 +120,7 @@ table {
 #aboutContainer{
 	text-align: center;
 	margin: 0 auto;
-	width: 30em;
+	width: 40em;
 }
 #aboutContainer p{
 	text-align: justify;
