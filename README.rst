@@ -54,8 +54,10 @@ Create a loopDB instance by
     loopDB = LoopDB( 'postgresql:///loopdb', clean = True )
 
 where the first argument is the address of your database, and ``clean`` flag determines whether the
-database should be emptied before initialisation. Default is ``clean=False``. ##### Setting up a
-schema
+database should be emptied before initialisation. Default is ``clean=False``. 
+
+Setting up a schema
+'''''''''''''''''''
 
 Now it's time to create a schema for the Loop Assembly. This involves setting up the restriction
 enzyme, restriction enzyme site, base sequence and backbone tables, which will be used for defying
