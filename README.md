@@ -9,7 +9,7 @@ LoopDesigner is a web app for interacting with LoopDB. Currently, the following 
 * Searching for a part by it's name.
 * Automatic assembly protocol generation.
 
-You can try a public version at [loopdesigner.herokuapp.com](loopdesigner.herokuapp.com)
+You can try a public version at [loopdesigner.herokuapp.com](http://loopdesigner.herokuapp.com)
 
 # Installation
 
