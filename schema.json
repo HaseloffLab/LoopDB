@@ -1,10 +1,10 @@
 {
 	"RE": [
 		{"name" : "BsaI", "seq" : "GGTCTCA"},
-		{"name" : "SapI", "seq" : "GGTCTCA"}
+		{"name" : "SapI", "seq" : "GCTCTTCA"}
 	],
 	"RES":[
-		{"name": "AB", "re": "BsaI", "site5": "GGAG" , "site3": "TACT" },
+		{"name": "AB", "re": "BsaI", "site5": "GGAG" , "site3": "TACT"},
 		{"name": "BC", "re": "BsaI", "site5": "TACT" , "site3": "AATG"},
 		{"name": "CE", "re": "BsaI", "site5": "AATG" , "site3": "GCTT"},
 		{"name": "EF", "re": "BsaI", "site5": "GCTT" , "site3": "CGCT"},
@@ -32,45 +32,31 @@
 
 	],
 	"BaseSeq":[
-		{"name": "L0", "gbFile": "gb/L0.gb" },
-		{"name": "GAL0", "gbFile": "gb/GAL0.gb" },
-		{"name": "Lk", "receiver": "AF", "gbFile": "gb/Lk.gb"},
-		{"name": "Ls", "receiver": "aw", "gbFile": "gb/Ls.gb" }
+		{"name": "L0",						"gbFile": "gb/L0.gb"	},
+		{"name": "pOd", "receiver": "AF", 	"gbFile": "gb/pOd.gb"	},
+		{"name": "pEv", "receiver": "aw",	"gbFile": "gb/pEv.gb"	}
 	],
 	"Backbone":[
-		{"name": "Lk-1", "baseSeq" : "Lk", "adapter" : "ab" },
-		{"name": "Lk-2", "baseSeq" : "Lk", "adapter" : "bg" },
-		{"name": "Lk-3", "baseSeq" : "Lk", "adapter" : "ge" },
-		{"name": "Lk-4", "baseSeq" : "Lk", "adapter" : "ew" },
-		{"name": "Ls-1", "baseSeq" : "Ls", "adapter" : "AB" },
-		{"name": "Ls-2", "baseSeq" : "Ls", "adapter" : "BC" },
-		{"name": "Ls-3", "baseSeq" : "Ls", "adapter" : "CE" },
-		{"name": "Ls-4", "baseSeq" : "Ls", "adapter" : "EF" },
+		{"name": "pOd-1", "baseSeq" : "pOd", "adapter" : "ab" },
+		{"name": "pOd-2", "baseSeq" : "pOd", "adapter" : "bg" },
+		{"name": "pOd-3", "baseSeq" : "pOd", "adapter" : "ge" },
+		{"name": "pOd-4", "baseSeq" : "pOd", "adapter" : "ew" },
+		{"name": "pEv-1", "baseSeq" : "pEv", "adapter" : "AB" },
+		{"name": "pEv-2", "baseSeq" : "pEv", "adapter" : "BC" },
+		{"name": "pEv-3", "baseSeq" : "pEv", "adapter" : "CE" },
+		{"name": "pEv-4", "baseSeq" : "pEv", "adapter" : "EF" },
 
-		{"name": "L0-Prom5", 	"baseSeq" : "L0", "adapter" : "prom5" },
-		{"name": "L0-Prom", 	"baseSeq" : "L0", "adapter" : "prom" },
-		{"name": "L0-UTR5", 	"baseSeq" : "L0", "adapter" : "utr5" },
-		{"name": "L0-CDS", 		"baseSeq" : "L0", "adapter" : "cds" },
-		{"name": "L0-CDS-", 	"baseSeq" : "L0", "adapter" : "cds-" },
-		{"name": "L0-CTAG", 	"baseSeq" : "L0", "adapter" : "ctag" },
-		{"name": "L0-CDS1", 	"baseSeq" : "L0", "adapter" : "cds1" },
-		{"name": "L0-CDS2", 	"baseSeq" : "L0", "adapter" : "cds2" },
-		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3" },
-		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term" },
-		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3" },
-		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU" },
-
-		{"name": "GAL0-Prom5", 	"baseSeq" : "GAL0", "adapter" : "prom5" },
-		{"name": "GAL0-Prom", 	"baseSeq" : "GAL0", "adapter" : "prom" },
-		{"name": "GAL0-UTR5", 	"baseSeq" : "GAL0", "adapter" : "utr5" },
-		{"name": "GAL0-CDS", 	"baseSeq" : "GAL0", "adapter" : "cds" },
-		{"name": "GAL0-CDS-", 	"baseSeq" : "GAL0", "adapter" : "cds-" },
-		{"name": "GAL0-CTAG", 	"baseSeq" : "GAL0", "adapter" : "ctag" },
-		{"name": "GAL0-CDS1", 	"baseSeq" : "GAL0", "adapter" : "cds1" },
-		{"name": "GAL0-CDS2", 	"baseSeq" : "GAL0", "adapter" : "cds2" },
-		{"name": "GAL0-UTR3", 	"baseSeq" : "GAL0", "adapter" : "utr3" },
-		{"name": "GAL0-TERM", 	"baseSeq" : "GAL0", "adapter" : "term" },
-		{"name": "GAL0-TERM3", 	"baseSeq" : "GAL0", "adapter" : "term3" },
-		{"name": "GAL0-TU", 	"baseSeq" : "GAL0", "adapter" : "TU" }
+		{"name": "L0-Prom5", 	"baseSeq" : "L0", "adapter" : "prom5"	},
+		{"name": "L0-Prom", 	"baseSeq" : "L0", "adapter" : "prom"	},
+		{"name": "L0-UTR5", 	"baseSeq" : "L0", "adapter" : "utr5"	},
+		{"name": "L0-CDS", 		"baseSeq" : "L0", "adapter" : "cds"		},
+		{"name": "L0-CDS-", 	"baseSeq" : "L0", "adapter" : "cds-"	},
+		{"name": "L0-CTAG", 	"baseSeq" : "L0", "adapter" : "ctag"	},
+		{"name": "L0-CDS1", 	"baseSeq" : "L0", "adapter" : "cds1"	},
+		{"name": "L0-CDS2", 	"baseSeq" : "L0", "adapter" : "cds2"	},
+		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3"	},
+		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term"	},
+		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3"	},
+		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU"		}
 	]
 }
