@@ -1,0 +1,32 @@
+LOCUS       HAP1_VP16                519 bp ds-DNA     linear       07-JUL-2017
+DEFINITION  .
+ACCESSION   
+VERSION     
+SOURCE      .
+  ORGANISM  .
+COMMENT     No BsmBI
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     misc_feature    1..516
+                     /label=HAP1
+                     /ApEinfo_fwdcolor="cyan"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     misc_feature    517..519
+                     /label=GR
+                     /ApEinfo_fwdcolor="#8aff58"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+ORIGIN
+        1 TCCTCCGACT CGTCCAAGAT CAAGAGGAAG CGGAACCGCA TCCCGCTCAG CTGCACCATC
+       61 TGCCGGAAGA GGAAGGTCAA GTGCGACAAG CTCAGGCCGC ACTGCCAGCA GTGCACCAAG
+      121 ACCGGGGTGG CCCACCTCTG CCACTACATG GAGCAGACCT GGGCCGAGGA GGCCGAGAAG
+      181 GAGTTGCTGA AGGACAACGA GTTGAAGAAG CTCAGGGAGC GCGTGAAGTC CTTGGAGAAG
+      241 ACCCTCTCCA AGGTGCACTC CTCCCCGTCG TCCAACTCCA CGGCCCCCCC GACCGACGTC
+      301 AGCCTGGGGG ACGAGCTCCA CTTAGACGGC GAGGACGTGG CGATGGCGCA TGCCGACGCG
+      361 CTAGACGATT TCGATCTGGA CATGTTGGGG GACGGGGATT CCCCGGGGCC GGGATTTACC
+      421 CCCCACGACT CCGCCCCCTA CGGCGCTCTG GATACGGCCG ACTTCGAGTT TGAGCAGATG
+      481 TTTACCGATG CCCTTGgaat tgacgagtac ggtgggTGA  
+//

@@ -1,4 +1,4 @@
-uploadFASTAForm = function(backbones){
+function uploadFASTAForm(backbones){
 	$().w2field('addType', 'label', function(options){});
 
 	return $().w2form({

@@ -37,6 +37,28 @@ def partToJson(part):
 	j["color"] 		= partColors[part.backbone.adapter.name]
 	return j
 
+def softDelete(dbid):
+	session = loopDB.Session()
+	
+	part = session.query(Part).filter(Part.dbid == dbid).first()
+	childPartship = session.query(Partship).filter( Partship.childID == part.id ).all()
+	
+	if childPartship:
+		return ["Error", "Dependent parts exist"]
+	else:
+		parentPartship = session.query(Partship).filter( Partship.parentID == part.id ).all()
+		
+		for partship in parentPartship:
+			session.delete(partship)
+
+		features = session.query(Feature).filter(Feature.partID == part.id).delete()
+		
+		print "Soft deleting ", part.dbid
+
+		session.delete(part)
+		session.commit()
+		return ["OK", part.dbid]
+
 def delete(dbid):
 	session = loopDB.Session()
 	
@@ -48,15 +70,34 @@ def delete(dbid):
 	for partship in childPartship:
 		parent = session.query(Part).filter(Part.id == partship.parentID).first()
 		session.delete(partship)
-		session.delete(parent)
+		delete(parent.dbid)
 
 	for partship in parentPartship:
 		session.delete(partship)
 
 	features = session.query(Feature).filter(Feature.partID == part.id).delete()
 	session.delete(part)
-
 	session.commit()
+
+	return["OK", part.dbid]
+
+def editName(dbid, newName):
+	session = loopDB.Session()
+	part = session.query(Part).filter(Part.dbid == dbid).first()
+	
+	if part:
+		part.name = newName
+		retMessage = ["OK", partToJson(part)]
+	else:
+		retMessage = ["Error", "Part not found."]
+	
+	try:
+		session.commit()
+	except:
+		retMessage = ["Error", "Bad name. Try again."]
+
+	session.close()
+	return retMessage
 
 def featureToJson(feature):
 	j = {}
@@ -133,7 +174,7 @@ def addL0(part):
 			record = record[len(backbone.adapter.site5):-len(backbone.adapter.site3)]
 
 			record.features.insert(0, SeqFeature( FeatureLocation(0, len(record)),
-				type = "misc_feature", id = "Part Feature",
+				type = "misc_feature", id = "Part Feature", strand = 1,
 					qualifiers = {"label" : [part["Part name"]], "ApEinfo_fwdcolor": [ partColors[backbone.adapter.name] ] } ) )
 
 			newPart = loopDB.addPart(backbone = backbone, name = part["Part name"], record = record)
@@ -199,11 +240,17 @@ def submitPart(part):
 	else:
 		return ["ERROR", "Backbone or one of the children not found"]
 
-@socketio.on('deletePart')
-def deletePart(dbid):
-	delete(dbid)
-	return ["OK", ""]
+@socketio.on('deletePartSoft')
+def deletePartSoft(dbid):
+	return softDelete(dbid)
 
+@socketio.on('deletePartHard')
+def deletePartHard(dbid):
+	return delete(dbid)
+
+@socketio.on('editName')
+def editPartName(dbid, newName):
+	return editName(dbid, newName)
 
 if __name__ == '__main__':
 	loopDB.initFromFile('schema.json')
