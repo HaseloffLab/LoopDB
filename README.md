@@ -56,7 +56,7 @@ The easiest way to define a schema is by using a JSON file. Have a look at the `
 * BaseSeq: Plasmid sequence with one of the receiver sequence pairs, defined in RES section. This corresponds to different assembly levels, e.g. for an odd level (pOdd):
 
 ```javascript
-{"name": "pOdd", "receiver": "AF", "gbFile": "gb/Lk.gb"}
+{"name": "pOdd-1", "receiver": "AF", "gbFile": "gb/pOdd-1.gb"}
 ```
 
 where `gbFile` is the path to the plasmid sequence in the GenBank format.
