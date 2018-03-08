@@ -4,13 +4,13 @@ from os import path
 
 setup(
 	name = 'loopDB',
-	version = '0.2.2',
+	version = '0.2.3',
 	description='A module for creating and storing DNA parts for Loop Assembly',
 	url='https://github.com/HaseloffLab/LoopDB',
 	download_url='https://github.com/HaseloffLab/LoopDB/archive/0.2.2.tar.gz',
 	author = 'Mihails Delmans',
 	author_email='md656@cam.ac.uk',
-	license = 'GPL',
+	license = 'MIT',
 	classifiers=[
 		# How mature is this project? Common values are
 		#   3 - Alpha
@@ -32,6 +32,6 @@ setup(
 	],
 	keywords='bioinfomratics parts synthetic biology loop assembly',
 	packages=find_packages(),
-	install_requires=['sqlalchemy', 'partsdb'],
+	install_requires=['sqlalchemy', 'partsdb', 'biopython', 'psycopg2'],
 )
 
