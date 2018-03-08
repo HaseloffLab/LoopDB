@@ -18,6 +18,11 @@ Refer to **Advanced** for getting hold of **SQLAlchemy** functions.
 
 **Any other questions?** Please file an issue, or contact me at m.delmans@gmail.com
 
+Looking for LoopDesigner ?
+==========================
+
+It's on another `branch <https://github.com/HaseloffLab/LoopDB/tree/loopdesigner>`_.
+
 Getting started
 ===============
 
