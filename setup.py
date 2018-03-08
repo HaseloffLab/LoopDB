@@ -7,7 +7,7 @@ setup(
 	version = '0.2.3',
 	description='A module for creating and storing DNA parts for Loop Assembly',
 	url='https://github.com/HaseloffLab/LoopDB',
-	download_url='https://github.com/HaseloffLab/LoopDB/archive/0.2.2.tar.gz',
+	download_url='https://github.com/HaseloffLab/LoopDB/archive/0.2.3.tar.gz',
 	author = 'Mihails Delmans',
 	author_email='md656@cam.ac.uk',
 	license = 'MIT',
