@@ -32,6 +32,6 @@ setup(
 	],
 	keywords='bioinfomratics parts synthetic biology loop assembly',
 	packages=find_packages(),
-	install_requires=['sqlalchemy', 'partsdb', 'biopython', 'psycopg2'],
+	install_requires=['sqlalchemy', 'partsdb', 'biopython', 'psycopg2-binary'],
 )
 
