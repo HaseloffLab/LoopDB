@@ -13,12 +13,12 @@ function addNewForm(backbones){
 				options: {
 					max : 1,
 					onAdd: function(){
-						w2ui['addForm'].get("Sequence").disabled = true;
-						w2ui['addForm'].refresh("Sequence");
+						w2ui['addNewForm'].get("Sequence").disabled = true;
+						w2ui['addNewForm'].refresh("Sequence");
 					},
 					onRemove: function(){
-						w2ui['addForm'].get("Sequence").disabled = false;
-						w2ui['addForm'].refresh("Sequence");
+						w2ui['addNewForm'].get("Sequence").disabled = false;
+						w2ui['addNewForm'].refresh("Sequence");
 					}
 				},
 				html:{
