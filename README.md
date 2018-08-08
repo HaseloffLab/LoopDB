@@ -36,6 +36,35 @@ can be done with
 createdb loopdb
 ```
 
+### Install LoopDesigner
+
+Check out the `loopdesigner` branch:
+
+``` bash
+git clone https://github.com/HaseloffLab/LoopDB.git -b loopdesigner LoopDesigner
+```
+
+This will clone the files to LoopDesigner folder. Now install the requirements:
+
+``` bash
+cd LoopDesigner
+pip install -r requirements.txt
+```
+
+### Starting the server
+
+Now you should be ready to start the LoopDesigning server by running
+
+```bash
+python server.py
+```
+
+If you didn't get any errors you should be able to access the LoopDesigner by navigating to
+
+http://127.0.0.1:8000
+
+in your browser.
+
 ### Setting up a schema
 
 The easiest way to define a schema is by using a JSON file. Have a look at the `schema.json` file for an example. The schema file should define four collections:
@@ -75,17 +104,3 @@ Once the schema file is complete, the schema can be applied to the database thro
 >> loopDB = LoopDB( 'postgresql:///loopdb', clean = True) # Establishing the connection to the database
 >> loopDB.initFromFile('schema.json') # Initialising from the schema file
 ```
-
-### Starting the server
-
-Now you should be ready to start the LoopDesigning server by running
-
-```bash
-python server.py
-```
-
-If you didn't get any errors you should be able to access the LoopDesigner by navigating to
-
-http://127.0.0.1:8000
-
-in your browser.
