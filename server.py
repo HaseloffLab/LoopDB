@@ -8,16 +8,18 @@ from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
 from Bio.Alphabet import IUPAC
 from Bio import SeqIO
+from Bio import Restriction
 from domesticate import domesticate, partColors
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 
+import config
+
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.secret_key = 'SECRET'
+app.config.from_object('config')
 
 socketio = SocketIO(app)
 
-loopDB = LoopDB( 'postgresql:///loopdb')
+loopDB = LoopDB( app.config["DATABASE_URL"] )
 
 def w2uiFormToDict(request):
 	return json.loads(request.form.to_dict()['request'])["record"]
@@ -137,6 +139,11 @@ def backboneToJSON(backbone):
 	
 	return j
 
+def digest(part, enzyme):
+	seq = part.fullSeq
+	if hasattr(Restriction, enzyme):
+		enzyme = getattr(Restriction, enzyme)
+		
 @app.route('/')
 def index():
 	return render_template('layout.html')
@@ -253,5 +260,5 @@ def editPartName(dbid, newName):
 	return editName(dbid, newName)
 
 if __name__ == '__main__':
-	loopDB.initFromFile('schema.json')
+	loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
