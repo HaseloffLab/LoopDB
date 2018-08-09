@@ -49,6 +49,10 @@ toolbar = {
 		{ id: 'about', type: 'button', caption: 'About', icon: 'fa fa-info', onClick: function(event){
 				w2ui['layout'].load('main', '/static/html/about.html');
 			}
+		},
+		{ id: 'help', type: 'button', caption: 'Help', icon: 'fa fa-question', onClick: function(event){
+				w2ui['layout'].load('main', '/static/html/help.html');
+			}
 		}
 	],
 
