@@ -1,0 +1,4 @@
+DEBUG			= True
+SECRET_KEY		= ""
+DATABASE_URL	= ""
+SCHEMA_PATH		= ""

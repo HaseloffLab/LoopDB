@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 bcbio-gff==0.6.4
 biopython==1.64
 Flask==0.12
@@ -9,3 +10,8 @@ psycopg2==2.6.1
 SQLAlchemy==1.1.10
 gunicorn==19.7.1
 eventlet==0.21.0
+=======
+Flask==0.12.2
+Flask-SocketIO==2.9.4
+loopDB==0.2.3a0
+>>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07

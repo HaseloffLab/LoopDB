@@ -26,6 +26,15 @@ h2, h4{
 	font-weight: lighter;
 }
 
+<<<<<<< HEAD
+=======
+a {
+  color:#c73;
+  font-weight:400;
+  text-decoration:none;
+}
+
+>>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07
 p{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: lighter;

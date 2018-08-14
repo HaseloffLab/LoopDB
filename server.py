@@ -8,17 +8,23 @@ from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
 from Bio.Alphabet import IUPAC
 from Bio import SeqIO
+from Bio import Restriction
 from domesticate import domesticate, partColors
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 
+import config
+
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.secret_key = 'SECRET'
+app.config.from_object('config')
 
 socketio = SocketIO(app)
 
+<<<<<<< HEAD
 #loopDB = LoopDB( 'postgresql:///dnalooper')
 loopDB = LoopDB('postgres://yvzfsazuhpepmv:3b1e1b321abd1c7d7851c53ee0adf25d0fa701203aa1d00def8ed8ab3deef3f8@ec2-54-83-25-217.compute-1.amazonaws.com:5432/df2063nflr5ueh')
+=======
+loopDB = LoopDB( app.config["DATABASE_URL"] )
+>>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07
 
 def w2uiFormToDict(request):
 	return json.loads(request.form.to_dict()['request'])["record"]
@@ -138,6 +144,11 @@ def backboneToJSON(backbone):
 	
 	return j
 
+def digest(part, enzyme):
+	seq = part.fullSeq
+	if hasattr(Restriction, enzyme):
+		enzyme = getattr(Restriction, enzyme)
+		
 @app.route('/')
 def index():
 	return render_template('layout.html')
@@ -254,5 +265,5 @@ def editPartName(dbid, newName):
 	return editName(dbid, newName)
 
 if __name__ == '__main__':
-	loopDB.initFromFile('schema.json')
+	loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
