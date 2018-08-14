@@ -1,9 +1,9 @@
 <div id='aboutContainer'>
-	<h1 id="this-tutorial-explains-how-to-store-and-assemble-loop-constructs-using-loopdesigner-">This tutorial explains how to store and assemble Loop constructs using LoopDesigner.</h1>
-	<h2 id="adding-parts">Adding parts</h2>
-	<h2 id="adding-one-part" class="left">Adding one part</h2>
+	<h1 id="this-tutorial-explains-how-to-store-and-assemble-loop-constructs-using-loopdesigner-">LoopDesigner tutorial</h1>
+	<p>This tutorial explains how to store and assemble Loop constructs using LoopDesigner.</p>
+	<h2 id="adding-one-part" >Adding one part</h2>
 		<p>Select <strong>Add -&gt; Add part</strong> from the top right menu:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AddPart.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AddPart.png" alt=""></p>
 		<p>This will open an &#39;Add new part&#39; form in the main area of the designer.</p>
 		<p>Fill in the required information:</p>
 		<ul>
@@ -13,28 +13,29 @@
 			<li><strong>Backbone:</strong> Select one of the Backbones. This will determine the adapter overhangs to use for the new part.</li>
 		</ul>
 		<p>Click on the <strong>Save</strong> button in the bottom of the form. If no errors appear, you will be able to find your new part in the corresponding folder in the navigation panel:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/Navigate.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/Navigate.png" alt=""></p>
 		<p>Click on the part to view its sequence and a plasmid map. Use action buttons above the plasmid map to edit the name of the part, download the complete sequence of the plasmid or delete it:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/Operate.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/Operate.png" alt=""></p>
 	
-	<h2 id="adding-multiple-parts" class="left">Adding multiple parts</h2>
+	<h2 id="adding-multiple-parts">Adding multiple parts</h2>
 		<p>You can alternatively add multiple parts, stored in a multi-line FASTA file. Note that, as in case with one part, the sequences should be bare, i.e. contain no sequences of the plasmid, restriction enzyme sites or overhangs.</p>
 		<p>Select <strong>Add -&gt; Add multiple parts</strong> from the top right menu:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AddMultiple.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AddMultiple.png" alt=""></p>
 		<p>Click inside <strong>FASTA file</strong> field and select the file you want to upload.</p>
 		<p>Click on the <strong>Upload</strong> button in the bottom of the form. This should generate a new form with one row per each sequence in the selected FASTA file:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/MultipleForm.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/MultipleForm.png" alt=""></p>
 		<p>Select the <strong>Baseseq</strong> and <strong>Backbone</strong> for each of the parts and click on the <strong>Save</strong> button in the bottom of the form. This should add your parts to the corresponding folder in the navigation panel.</p>
 	
 	<h2 id="assembling-parts">Assembling parts</h2>
 		<p>Select <strong>Add -&gt; Assemble part</strong> from the top right menu:</p>
-		<p><img src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AssemblePart.png" alt=""></p>
+		<p><img class="center" src="https://github.com/HaseloffLab/LoopDB/wiki/images/tutorial/AssemblePart.png" alt=""></p>
 		<p>This will open an &#39;Assemble new part&#39; form in the main area of the designer.</p>
 		<p>Start by selecting the <strong>Backbone</strong> you want to use for the assembly.</p>
 		<p>You will be then asked to select the first part for the assembly. On this and consecutive steps the choice of parts will be limited to those, having a 5&#39; adapter overhang matching the 3&#39; adapter overhang of the previous part, or the 5&#39; receiver overhang of the selected backbone for the first part. If you have a part in your collection, but it is not it the list, check that it has the right backbone assigned and that you are selecting it at the right step of the assembly.</p>
 		<p>The assembly automatically finishes, when the 3&#39; adapter overhang of the selected part matches the 3&#39; receiver overhang of the plasmid. At this point you will be asked to enter a name for the new part and save it by clicking <strong>Finalise</strong>.</p>
 		<p>If you select a part, which doesn&#39;t have a matching overhang you will be presented with an &#39;Can&#39;t find parts to proceed assembly.&#39; message. You can go backward stepwise by clicking the <strong>Back</strong> button in the bottom of the form.</p>
-		<h2 id="understanding-assembly-protocol">Understanding assembly protocol</h2>
+		
+	<h2 id="understanding-assembly-protocol">Understanding assembly protocol</h2>
 		<p>When you select a part with a level higher that zero from you collection, you will see a protocol table below the sequence panel. The number of columns correspond to the number of children parts, that make up the part you&#39;ve selected. The three rows contain information about the names of the backbone and all the children, the lengths of the complete plasmids and concentration they should be diluted to in order to use them in the standard Loop Assembly protocol (using 1 uL of each of the children parts and 1 uL of the backbone).</p>
 		<p>We suggest to copy tables of all the parts you want to assemble in one big table, print it out and take to the bench, where it will guide you during the assembly.</p>
 </div>
