@@ -34,7 +34,7 @@ a {
   text-decoration:none;
 }
 
-p{
+p, li{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: lighter;
 	color: #888;
@@ -81,6 +81,12 @@ p{
 	fill:#ddd;
 	stroke:#999;
 }
+
+.left{
+	float: left;
+	text-align: left;
+}
+
 
 #p1{
 	/*font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;*/
@@ -132,6 +138,10 @@ table {
 }
 #aboutContainer p{
 	text-align: justify;
+}
+
+#aboutContainer li{
+	text-align: left;
 }
 
 
