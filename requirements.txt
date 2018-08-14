@@ -1,7 +1,8 @@
 bcbio-gff==0.6.4
 biopython==1.64
 Flask==0.12
-Flask-SocketIO==2.8.6
+#Flask-SocketIO==2.8.6
+Flask-SocketIO==3.0.1
 #git+https://bp:pocomoco@github.com/HaseloffLab/LoopDB
 LoopDB==0.2.2
 PartsDB==0.1
