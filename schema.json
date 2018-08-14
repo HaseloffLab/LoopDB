@@ -15,7 +15,7 @@
 		{"name": "ew", "re": "SapI", "site5": "CAG" , "site3": "GGT" },
 
 		{"name": "AF", "re": "BsaI", "site5": "GGAG" , "site3": "CGCT"},
-		{"name": "aw", "re": "SapI", "site5": "AATG"  , "site3": "GGTA" },
+		{"name": "aw", "re": "SapI", "site5": "ATG"  , "site3": "GGT" },
 
 		{"name": "prom5",	"re": "BsaI",	"site5": "GGAG",	"site3": "AATG"},
 		{"name": "prom",	"re": "BsaI",	"site5": "GGAG",	"site3": "TACT"},
