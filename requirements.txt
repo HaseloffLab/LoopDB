@@ -5,10 +5,11 @@ Flask-SocketIO==2.8.6
 #git+https://bp:pocomoco@github.com/HaseloffLab/LoopDB
 LoopDB==0.2.2
 PartsDB==0.1
-psycopg2==2.7.5
+psycopg2==2.6.1
 SQLAlchemy==1.1.10
 gunicorn==19.7.1
-eventlet==0.21.0
+#eventlet==0.21.0
+gevent-websocket-0.10.1
 #gevent==1.2.2
 #gevent-socketio==0.3.6
 #gevent-websocket==0.10.1
