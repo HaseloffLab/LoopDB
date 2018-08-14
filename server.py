@@ -19,12 +19,7 @@ app.config.from_object('config')
 
 socketio = SocketIO(app)
 
-<<<<<<< HEAD
-#loopDB = LoopDB( 'postgresql:///dnalooper')
-loopDB = LoopDB('postgres://yvzfsazuhpepmv:3b1e1b321abd1c7d7851c53ee0adf25d0fa701203aa1d00def8ed8ab3deef3f8@ec2-54-83-25-217.compute-1.amazonaws.com:5432/df2063nflr5ueh')
-=======
 loopDB = LoopDB( app.config["DATABASE_URL"] )
->>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07
 
 def w2uiFormToDict(request):
 	return json.loads(request.form.to_dict()['request'])["record"]
