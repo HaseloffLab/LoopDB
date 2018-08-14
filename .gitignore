@@ -1,2 +1,7 @@
 **/.DS_Store
+<<<<<<< HEAD
 **/*.pyc
+=======
+loopDB.egg-info/
+loopDB.egg-info/dist/
+>>>>>>> 3487ac72a1326d9afb322b81856941e2f52323c6
