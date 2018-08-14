@@ -4,16 +4,12 @@
 		{"name" : "SapI", "seq" : "GCTCTTCA"}
 	],
 	"RES":[
-<<<<<<< HEAD
-		{"name": "AB", "re": "BsaI", "site5": "GGAG" , "site3": "TACT" },
-=======
+
 		{"name": "AB", "re": "BsaI", "site5": "GGAG" , "site3": "TACT"},
->>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07
 		{"name": "BC", "re": "BsaI", "site5": "TACT" , "site3": "AATG"},
 		{"name": "CE", "re": "BsaI", "site5": "AATG" , "site3": "GCTT"},
 		{"name": "EF", "re": "BsaI", "site5": "GCTT" , "site3": "CGCT"},
 		
-<<<<<<< HEAD
 		{"name": "ab", "re": "SapI", "site5": "ATG" , "site3": "GCA" },
 		{"name": "bg", "re": "SapI", "site5": "GCA" , "site3": "TAC" },
 		{"name": "ge", "re": "SapI", "site5": "TAC" , "site3": "CAG" },
@@ -21,15 +17,6 @@
 
 		{"name": "AF", "re": "BsaI", "site5": "GGAG" , "site3": "CGCT"},
 		{"name": "aw", "re": "SapI", "site5": "ATG"  , "site3": "GGT" },
-=======
-		{"name": "ab", "re": "SapI", "site5": "AATG" , "site3": "GCA" },
-		{"name": "bg", "re": "SapI", "site5": "GCA"  , "site3": "TAC" },
-		{"name": "ge", "re": "SapI", "site5": "TAC"  , "site3": "CAG" },
-		{"name": "ew", "re": "SapI", "site5": "CAG"  , "site3": "GGTA" },
-
-		{"name": "AF", "re": "BsaI", "site5": "GGAG"  , "site3": "CGCT"},
-		{"name": "aw", "re": "SapI", "site5": "AATG"  , "site3": "GGTA"},
->>>>>>> 8365f503065420ecc7c64efdfc75b489fd792f07
 
 		{"name": "prom5",	"re": "BsaI",	"site5": "GGAG",	"site3": "AATG"},
 		{"name": "prom",	"re": "BsaI",	"site5": "GGAG",	"site3": "TACT"},
@@ -47,8 +34,8 @@
 	],
 	"BaseSeq":[
 		{"name": "L0", "gbFile": "gb/L0.gb" },
-		{"name": "GAL0", "gbFile": "gb/GAL0.gb"},
-		{"name": "pICH", "gbFile": "gb/pICH.gb"},
+		//{"name": "GAL0", "gbFile": "gb/GAL0.gb"},
+		//{"name": "pICH", "gbFile": "gb/pICH.gb"},
 		{"name": "UAP1", "gbFile": "gb/UAP1.gb"},
 		
 		{"name": "pOdd-1", "receiver": "AF", "gbFile": "gb/pOdd-1.gb"},
@@ -59,10 +46,10 @@
 		{"name": "pEven-1", "receiver": "aw", "gbFile": "gb/pEven-1.gb"},
 		{"name": "pEven-2", "receiver": "aw", "gbFile": "gb/pEven-2.gb"},
 		{"name": "pEven-3", "receiver": "aw", "gbFile": "gb/pEven-3.gb"},
-		{"name": "pEven-4", "receiver": "aw", "gbFile": "gb/pEven-4.gb"},
+		{"name": "pEven-4", "receiver": "aw", "gbFile": "gb/pEven-4.gb"}
 
-		{"name": "pCk", "receiver": "AF",	"gbFile": "gb/pCk.gb"	},
-		{"name": "pCs", "receiver": "aw",	"gbFile": "gb/pCs.gb"	}
+		/*{"name": "pCk", "receiver": "AF",	"gbFile": "gb/pCk.gb"	},
+		{"name": "pCs", "receiver": "aw",	"gbFile": "gb/pCs.gb"	}*/
 	],
 	"Backbone":[
 		{"name": "pOdd-1", "baseSeq" : "pOdd-1", "adapter" : "ab" },
@@ -74,14 +61,14 @@
 		{"name": "pEven-3", "baseSeq" : "pEven-3", "adapter" : "CE" },
 		{"name": "pEven-4", "baseSeq" : "pEven-4", "adapter" : "EF" },
 
-		{"name": "pCk-1", "baseSeq" : "pCk", "adapter" : "ab" },
+		/*{"name": "pCk-1", "baseSeq" : "pCk", "adapter" : "ab" },
 		{"name": "pCk-2", "baseSeq" : "pCk", "adapter" : "bg" },
 		{"name": "pCk-3", "baseSeq" : "pCk", "adapter" : "ge" },
 		{"name": "pCk-4", "baseSeq" : "pCk", "adapter" : "ew" },
 		{"name": "pCs-1", "baseSeq" : "pCs", "adapter" : "AB" },
 		{"name": "pCs-2", "baseSeq" : "pCs", "adapter" : "BC" },
 		{"name": "pCs-3", "baseSeq" : "pCs", "adapter" : "CE" },
-		{"name": "pCs-4", "baseSeq" : "pCs", "adapter" : "EF" },
+		{"name": "pCs-4", "baseSeq" : "pCs", "adapter" : "EF" },*/
 
 		{"name": "L0-Prom5", 	"baseSeq" : "L0", "adapter" : "prom5"	},
 		{"name": "L0-Prom", 	"baseSeq" : "L0", "adapter" : "prom"	},
@@ -94,9 +81,9 @@
 		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3"	},
 		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term"	},
 		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3"	},
-		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU"		},
+		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU"		}
 
-		{"name": "GAL0-Prom5", 	"baseSeq" : "GAL0", "adapter" : "prom5"	},
+		/*{"name": "GAL0-Prom5", 	"baseSeq" : "GAL0", "adapter" : "prom5"	},
 		{"name": "GAL0-Prom", 	"baseSeq" : "GAL0", "adapter" : "prom"	},
 		{"name": "GAL0-UTR5", 	"baseSeq" : "GAL0", "adapter" : "utr5"	},
 		{"name": "GAL0-CDS", 	"baseSeq" : "GAL0", "adapter" : "cds"	},
@@ -107,11 +94,11 @@
 		{"name": "GAL0-UTR3", 	"baseSeq" : "GAL0", "adapter" : "utr3"	},
 		{"name": "GAL0-TERM", 	"baseSeq" : "GAL0", "adapter" : "term"	},
 		{"name": "GAL0-TERM3", 	"baseSeq" : "GAL0", "adapter" : "term3"	},
-		{"name": "GAL0-TU", 	"baseSeq" : "GAL0", "adapter" : "TU"	},
+		{"name": "GAL0-TU", 	"baseSeq" : "GAL0", "adapter" : "TU"	},*/
 
-		{"name": "UAP1-CTAG", 	"baseSeq" : "UAP1", "adapter" : "ctag"	},
+		/*{"name": "UAP1-CTAG", 	"baseSeq" : "UAP1", "adapter" : "ctag"	},
 		{"name": "UAP1-PROM5",	"baseSeq" : "UAP1",	"adapter" : "prom5" },
 
-		{"name": "pICH-TERM3", 	"baseSeq" : "pICH", "adapter" : "term3"	}
+		{"name": "pICH-TERM3", 	"baseSeq" : "pICH", "adapter" : "term3"	}*/
 	]
 }
