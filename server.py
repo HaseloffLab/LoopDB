@@ -20,6 +20,7 @@ app.config.from_object('config')
 socketio = SocketIO(app)
 
 loopDB = LoopDB( app.config["DATABASE_URL"] )
+loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 
 def w2uiFormToDict(request):
 	return json.loads(request.form.to_dict()['request'])["record"]
@@ -260,5 +261,4 @@ def editPartName(dbid, newName):
 	return editName(dbid, newName)
 
 if __name__ == '__main__':
-	loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
