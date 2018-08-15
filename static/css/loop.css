@@ -26,13 +26,15 @@ h2, h4{
 	font-weight: lighter;
 }
 
+
+
 a {
   color:#c73;
   font-weight:400;
   text-decoration:none;
 }
 
-p{
+p, li{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: lighter;
 	color: #888;
@@ -78,6 +80,17 @@ p{
 .t1{
 	fill:#ddd;
 	stroke:#999;
+}
+
+.left{
+	text-align: left;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }
 
 #p1{
@@ -130,6 +143,10 @@ table {
 }
 #aboutContainer p{
 	text-align: justify;
+}
+
+#aboutContainer li{
+	text-align: left;
 }
 
 
