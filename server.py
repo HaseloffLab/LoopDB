@@ -20,7 +20,6 @@ app.config.from_object('config')
 socketio = SocketIO(app)
 
 loopDB = LoopDB( app.config["DATABASE_URL"] )
-loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 
 def w2uiFormToDict(request):
 	return json.loads(request.form.to_dict()['request'])["record"]
