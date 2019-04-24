@@ -86,8 +86,8 @@ layout = $().w2layout({
 	name: 'layout',
 	panels: [
 		{ type: 'left', size: 300, resizable: true, content: leftBar, minSize:232},
-		{ type: 'main', toolbar: toolbar},
-		{ type: 'preview', resizable: true, size: 600},
+		{ type: 'main',  toolbar: toolbar},
+		{ type: 'preview', resizable: true, size: 500},
 		{ type: 'bottom', size: 56}
 	]
 });
