@@ -3,3 +3,4 @@ Flask-SocketIO==2.9.4
 loopDB==0.2.3a0
 gunicorn==19.7.1
 eventlet==0.21.0
+psycopg2
