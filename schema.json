@@ -8,13 +8,12 @@
 		{"name": "BC", "re": "BsaI", "site5": "TACT" , "site3": "AATG"},
 		{"name": "CE", "re": "BsaI", "site5": "AATG" , "site3": "GCTT"},
 		{"name": "EF", "re": "BsaI", "site5": "GCTT" , "site3": "CGCT"},
-		
-		{"name": "ab", "re": "SapI", "site5": "ATG" , "site3": "GCA" },
-		{"name": "bg", "re": "SapI", "site5": "GCA" , "site3": "TAC" },
-		{"name": "ge", "re": "SapI", "site5": "TAC" , "site3": "CAG" },
-		{"name": "ew", "re": "SapI", "site5": "CAG" , "site3": "GGT" },
-
 		{"name": "AF", "re": "BsaI", "site5": "GGAG" , "site3": "CGCT"},
+		
+		{"name": "ab", "re": "SapI", "site5": "ATG"  , "site3": "GCA" },
+		{"name": "bg", "re": "SapI", "site5": "GCA"  , "site3": "TAC" },
+		{"name": "ge", "re": "SapI", "site5": "TAC"  , "site3": "CAG" },
+		{"name": "ew", "re": "SapI", "site5": "CAG"  , "site3": "GGT" },
 		{"name": "aw", "re": "SapI", "site5": "ATG"  , "site3": "GGT" },
 
 		{"name": "prom5",	"re": "BsaI",	"site5": "GGAG",	"site3": "AATG"},
@@ -54,17 +53,17 @@
 		{"name": "pEven-3", "baseSeq" : "pEven-3", "adapter" : "CE" },
 		{"name": "pEven-4", "baseSeq" : "pEven-4", "adapter" : "EF" },
 
-		{"name": "L0-Prom5", 	"baseSeq" : "L0", "adapter" : "prom5" },
-		{"name": "L0-Prom", 	"baseSeq" : "L0", "adapter" : "prom" },
-		{"name": "L0-UTR5", 	"baseSeq" : "L0", "adapter" : "utr5" },
-		{"name": "L0-CDS", 		"baseSeq" : "L0", "adapter" : "cds" },
-		{"name": "L0-CDS-", 	"baseSeq" : "L0", "adapter" : "cds-" },
-		{"name": "L0-CTAG", 	"baseSeq" : "L0", "adapter" : "ctag" },
-		{"name": "L0-CDS1", 	"baseSeq" : "L0", "adapter" : "cds1" },
-		{"name": "L0-CDS2", 	"baseSeq" : "L0", "adapter" : "cds2" },
-		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3" },
-		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term" },
-		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3" },
-		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU" }
+		{"name": "L0-PROM5", 	"baseSeq" : "L0", "adapter" : "prom5"	},
+		{"name": "L0-PROM", 	"baseSeq" : "L0", "adapter" : "prom"	},
+		{"name": "L0-UTR5", 	"baseSeq" : "L0", "adapter" : "utr5"	},
+		{"name": "L0-CDS", 		"baseSeq" : "L0", "adapter" : "cds"		},
+		{"name": "L0-CDS-", 	"baseSeq" : "L0", "adapter" : "cds-"	},
+		{"name": "L0-CTAG", 	"baseSeq" : "L0", "adapter" : "ctag"	},
+		{"name": "L0-CDS1", 	"baseSeq" : "L0", "adapter" : "cds1"	},
+		{"name": "L0-CDS2", 	"baseSeq" : "L0", "adapter" : "cds2"	},
+		{"name": "L0-UTR3", 	"baseSeq" : "L0", "adapter" : "utr3"	},
+		{"name": "L0-TERM", 	"baseSeq" : "L0", "adapter" : "term"	},
+		{"name": "L0-TERM3", 	"baseSeq" : "L0", "adapter" : "term3"	},
+		{"name": "L0-TU", 		"baseSeq" : "L0", "adapter" : "TU"		}
 	]
 }

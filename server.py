@@ -260,5 +260,4 @@ def editPartName(dbid, newName):
 	return editName(dbid, newName)
 
 if __name__ == '__main__':
-	loopDB.initFromFile( app.config["SCHEMA_PATH"] )
 	socketio.run(app, debug=True,host='0.0.0.0', port = 8000)
